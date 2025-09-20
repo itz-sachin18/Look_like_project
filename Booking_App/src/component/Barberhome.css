@@ -1,0 +1,259 @@
+/* Reset existing styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* New top navigation */
+.app-container {
+  min-height: 100vh;
+}
+
+.top-navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #1e3a8a;
+  border-bottom: 2px solid #ffd700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.brand i {
+  margin-right: 10px;
+  color: #ffd700;
+}
+
+.top-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.admin-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #e0e0e0;
+}
+
+.admin-info i {
+  font-size: 1.2rem;
+  color: #ffd700;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #c41e3a;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #a01830;
+}
+
+/* Adjust existing dashboard container */
+.dashboard-container {
+  display: flex;
+  padding-top: 60px;
+}
+
+.sidebar {
+  top: 60px;
+  width: 280px;
+  background: #1e3a8a;
+  border-right: 1px solid rgba(255,215,0,0.1);
+  min-height: calc(100vh - 60px);
+  position: fixed;
+}
+
+.logo-section {
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,215,0,0.1);
+}
+
+.logo-section h2 {
+  color: #ffffff;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.admin-id {
+  color: #ffd700;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.nav-menu {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 30px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.2s ease;
+  margin: 4px 12px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+
+.nav-item i {
+  font-size: 18px;
+  margin-right: 12px;
+  width: 25px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.nav-item span {
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffd700;
+}
+
+.nav-item.active {
+  background: #ffd700;
+  color: #1e3a8a;
+  font-weight: 600;
+}
+
+.nav-item.active i {
+  color: #1e3a8a;
+}
+
+.logout-nav {
+  margin-top: auto;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logout-nav:hover {
+  background: rgba(196, 30, 58, 0.1);
+  color: #ff4d4d;
+  border-color: #ff4d4d;
+}
+
+.main-content {
+  margin-left: 280px;
+  padding: 20px;
+  width: calc(100% - 280px);
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.page-header h1 {
+  color: #192f59;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666666;
+}
+
+.breadcrumb i {
+  color: #ffd700;
+}
+
+/* Update existing components */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.stats-card {
+  background: linear-gradient(145deg, #192f59 0%, #234175 100%);
+  color: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,215,0,0.1);
+  transition: transform 0.3s;
+}
+
+.stats-card:hover {
+  transform: translateY(-5px);
+}
+
+.stats-number {
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255,215,0,0.3);
+}
+
+.chart-container {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .top-navigation {
+    padding: 0 10px;
+  }
+
+  .brand span {
+    display: none;
+  }
+
+  .admin-info span {
+    display: none;
+  }
+
+  .sidebar {
+    width: 100%;
+    position: relative;
+    min-height: auto;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .dashboard-container {
+    flex-direction: column;
+  }
+}

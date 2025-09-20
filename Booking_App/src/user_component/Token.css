@@ -1,0 +1,123 @@
+.token-container {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+/* Barber Selection */
+.barber-selection {
+  margin-top: 20px;
+}
+
+.barber-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding: 10px;
+}
+
+.barber-radio {
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.barber-radio input {
+  margin-right: 8px;
+}
+
+.barber-radio:hover {
+  background: #ddd;
+}
+
+/* Token List - Vertical Layout */
+.token-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.token-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: #e6f7ff;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #b3e0ff;
+  width: 300px;
+  margin: 5px 0;
+}
+
+.token-item.lunch-break {
+  background: #ffcc00;
+}
+
+.token-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #007bff;  /* Blue background for token numbers */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 50%;  /* Circle for token number */
+}
+
+.time-slot {
+  font-size: 16px;
+  color: #555;
+  margin-left: 15px;
+}
+
+.token-number-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;  /* Increase width for "Lunch Break" text */
+  height: 40px;
+  background-color: #ffcc00;  /* Yellow background for Lunch Break */
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+/* Book button styling */
+.book-button {
+  background-color: #007bff;
+  color: white;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: auto;
+  transition: background-color 0.3s;
+}
+
+.book-button:hover {
+  background-color: #0056b3;
+}

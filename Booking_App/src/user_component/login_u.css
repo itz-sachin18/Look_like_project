@@ -1,0 +1,221 @@
+/* Reset and base styles */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, #0a1930 0%, #223c5f 100%);
+  overflow-y: auto;
+}
+
+.auth-form-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  overflow-y: auto;
+}
+
+.auth-form-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.auth-form-title {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.auth-form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-height: 600px) {
+  .auth-form-container {
+    align-items: flex-start;
+    padding-top: 40px;
+  }
+
+  .auth-form-box {
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+
+  .auth-form-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .auth-form-group {
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .auth-form-box {
+    padding: 1.5rem;
+    margin: 10px;
+  }
+
+  .auth-form-title {
+    font-size: 1.5rem;
+  }
+
+  .auth-form-input {
+    padding: 0.8rem;
+  }
+
+  .auth-form-button {
+    padding: 0.8rem;
+  }
+}
+
+/* Fix for mobile browsers with dynamic navigation bars */
+@supports (-webkit-touch-callout: none) {
+  .auth-form-container {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Fix for mobile keyboard visibility */
+@media screen and (max-height: 450px) {
+  .auth-form-container {
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Import the styles from sign_u.css */
+@import './sign_u.css';
+
+/* Additional Login-specific styles */
+.auth-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  animation: fadeInScale 0.5s ease-out;
+}
+
+.auth-form-box {
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.auth-box h2 {
+  margin-bottom: 2.5rem;
+  color: #333;
+}
+
+.input-group {
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+  border-color: #007bff;
+}
+
+.forgot-password {
+  text-align: right;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+.forgot-password a {
+  color: #192f59;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+  color: #ffd700;
+}
+
+button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 2rem;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+p {
+  margin-top: 1rem;
+  color: #555;
+}
+
+p span {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+p span:hover {
+  color: #0056b3;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

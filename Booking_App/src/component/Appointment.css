@@ -1,0 +1,564 @@
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Layout styles - renamed to avoid conflicts */
+.appt-layout {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.appt-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #1e3a8a;
+  border-bottom: 2px solid #ffd700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+.appt-brand {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.appt-brand i {
+  margin-right: 10px;
+  color: #ffd700;
+}
+
+.appt-nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.appt-admin-info {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.appt-admin-info i {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+.appt-container {
+  display: flex;
+  padding-top: 60px;
+  min-height: calc(100vh - 60px);
+  position: relative;
+}
+
+.appt-sidebar {
+  width: 280px;
+  background: #1e3a8a;
+  position: fixed;
+  height: calc(100vh - 60px);
+  color: white;
+  z-index: 900;
+  transition: transform 0.3s ease;
+  left: 0;
+  top: 60px;
+}
+
+.appt-sidebar-header {
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.appt-sidebar-header h2 {
+  color: #ffffff;
+  margin: 0;
+  margin-bottom: 8px;
+  font-size: 1.3rem;
+}
+
+.appt-admin-id {
+  color: #ffd700;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.appt-nav-menu {
+  padding: 20px 0;
+}
+
+.appt-nav-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 25px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 5px 15px;
+  border-radius: 8px;
+}
+
+.appt-nav-item i {
+  margin-right: 12px;
+  width: 20px;
+}
+
+.appt-nav-item:hover {
+  background: rgba(255, 215, 0, 0.1);
+  color: #ffd700;
+}
+
+.appt-nav-item.active {
+  background: #ffd700;
+  color: #1e3a8a;
+  font-weight: 600;
+}
+
+.appt-main {
+  margin-left: 280px;
+  flex: 1;
+  padding: 20px;
+  width: calc(100% - 280px);
+  min-height: calc(100vh - 60px);
+}
+
+.appt-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Dashboard styles */
+.appt-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.appt-datetime-card {
+  display: flex;
+  align-items: center;
+  background: #ffd700;
+  border-radius: 12px;
+  padding: 16px 24px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.appt-datetime-icon {
+  margin-right: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.appt-datetime-info {
+  flex: 1;
+}
+
+.appt-datetime-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+  opacity: 0.9;
+}
+
+.appt-datetime-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.appt-main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 992px) {
+  .appt-main-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.appt-section {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  height: fit-content;
+}
+
+.appt-section-header {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.appt-section-icon {
+  color: #1e3a8a;
+  margin-right: 12px;
+}
+
+.appt-section-title {
+  font-size: 1.1rem;
+  color: #333;
+  margin: 0;
+  font-weight: 600;
+}
+
+.appt-selected-barber {
+  color: #1e3a8a;
+}
+
+.appt-section-content {
+  padding: 20px;
+}
+
+/* Barber selection styles */
+.appt-barber-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.appt-barber-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  background: white;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 8px;
+}
+
+.appt-barber-radio {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.appt-barber-checkmark {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border: 2px solid #1e3a8a;
+  border-radius: 50%;
+  margin-right: 12px;
+  transition: all 0.2s ease;
+}
+
+.appt-barber-radio:checked ~ .appt-barber-checkmark {
+  background-color: #1e3a8a;
+  border-color: #1e3a8a;
+}
+
+.appt-barber-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  transform: translate(-50%, -50%);
+}
+
+.appt-barber-radio:checked ~ .appt-barber-checkmark:after {
+  display: block;
+}
+
+.appt-barber-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Appointments styles */
+.appt-appointments-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .appt-appointments-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .appt-appointments-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.appt-appointment-card {
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #eaeaea;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.appt-appointment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.appt-appointment-header {
+  padding: 12px 16px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #eaeaea;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.appt-appointment-status {
+  display: flex;
+  align-items: center;
+}
+
+.appt-status-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+}
+
+.appt-status-icon.confirmed {
+  color: #10b981;
+}
+
+.appt-status-icon.pending {
+  color: #f59e0b;
+}
+
+.appt-status-icon.cancelled {
+  color: #ef4444;
+}
+
+.appt-status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.appt-status-badge.confirmed {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.appt-status-badge.pending {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+
+.appt-status-badge.cancelled {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.appt-appointment-body {
+  padding: 16px;
+}
+
+.appt-appointment-detail {
+  margin-bottom: 10px;
+}
+
+.appt-appointment-detail:last-child {
+  margin-bottom: 0;
+}
+
+.appt-detail-label {
+  font-weight: 600;
+  color: #4b5563;
+  margin-right: 6px;
+  font-size: 0.9rem;
+}
+
+.appt-detail-value {
+  color: #1f2937;
+  font-size: 0.9rem;
+}
+
+/* Scan QR Code Button */
+.appt-qr-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.appt-qr-button:hover {
+  background-color: #2b4cb5;
+}
+
+/* Loading and error states */
+.appt-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: #4b5563;
+  font-size: 0.9rem;
+}
+
+.appt-error {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin: 10px 0;
+}
+
+.appt-empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  color: #6b7280;
+  font-size: 0.95rem;
+  text-align: center;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px dashed #d1d5db;
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+  .appt-main-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .appt-sidebar {
+    transform: translateX(-100%);
+  }
+
+  .appt-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .appt-main {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .appt-datetime-card {
+    padding: 12px 16px;
+  }
+
+  .appt-datetime-title {
+    font-size: 0.8rem;
+  }
+
+  .appt-datetime-value {
+    font-size: 0.9rem;
+  }
+
+  .appt-section-header {
+    padding: 12px 16px;
+  }
+
+  .appt-section-title {
+    font-size: 1rem;
+  }
+
+  .appt-section-content {
+    padding: 16px;
+  }
+
+  .appt-barber-option {
+    padding: 10px 14px;
+  }
+
+  .appt-barber-name {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .appt-topbar {
+    padding: 0 12px;
+  }
+
+  .appt-brand span {
+    display: none;
+  }
+
+  .appt-admin-info span {
+    display: none;
+  }
+
+  .appt-datetime-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .appt-datetime-icon {
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+
+  .appt-appointments-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .appt-appointment-detail {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .appt-detail-label {
+    margin-bottom: 2px;
+  }
+}

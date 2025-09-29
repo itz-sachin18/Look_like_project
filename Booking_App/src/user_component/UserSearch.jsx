@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { apiEndpoint } from '../api';
 import { useNavigate, useLocation } from "react-router-dom";
 import { Home, Search, Calendar as CalendarIcon, UserCircle, Settings, LogOut } from 'lucide-react';
 import "./userSearch.css";
@@ -19,7 +20,7 @@ const UserSearch = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/search?query=${encodeURIComponent(searchTerm)}`,
+        apiEndpoint(`/api/search?query=${encodeURIComponent(searchTerm)}`),
         {
           method: "GET",
           headers: {

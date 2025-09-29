@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { apiEndpoint } from '../api';
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -13,7 +14,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/login",
+        apiEndpoint("/api/login"),
         { email, password },
         { withCredentials: true }
       );

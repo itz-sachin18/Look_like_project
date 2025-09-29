@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { useLocation, useNavigate, Link } from "react-router-dom"
 import axios from "axios"
+import { apiEndpoint } from '../api';
 import { Calendar, Clock, User, CheckCircle, AlertCircle } from "lucide-react"
 import "./Appointment.css"
 
@@ -37,13 +38,13 @@ const Appointment = () => {
     const fetchData = async () => {
       try {
         setLoading(true)
-        const shopResponse = await axios.get(`http://localhost:5000/api/shops/admin/${adminId}`, {
+  const shopResponse = await axios.get(apiEndpoint(`/api/shops/admin/${adminId}`), {
           withCredentials: true,
         })
 
         if (shopResponse.data && shopResponse.data.uniqueId) {
           const barbersResponse = await axios.get(
-            `http://localhost:5000/api/appointments/${shopResponse.data.uniqueId}`,
+            apiEndpoint(`/api/appointments/${shopResponse.data.uniqueId}`),
             { withCredentials: true },
           )
 
@@ -75,7 +76,7 @@ const Appointment = () => {
       try {
         setAppointmentsLoading(true)
         setAppointmentsError(null)
-        const response = await axios.get(`http://localhost:5000/api/api/bookings/barber/${selectedBarberId}`, {
+  const response = await axios.get(apiEndpoint(`/api/api/bookings/barber/${selectedBarberId}`), {
           withCredentials: true,
         })
 

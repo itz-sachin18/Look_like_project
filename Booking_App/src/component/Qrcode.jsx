@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { QrReader } from "react-qr-reader";
 import axios from "axios";
+import { apiEndpoint } from '../api';
 
 const QrCode = () => {
   const { state } = useLocation();
@@ -65,7 +66,7 @@ const QrCode = () => {
   const updateAppointmentStatus = async () => {
     try {
       await axios.put(
-        `http://localhost:5000/api/bookings/${userId}`,
+        apiEndpoint(`/api/bookings/${userId}`),
         { status: "completed" },
         { withCredentials: true }
       );

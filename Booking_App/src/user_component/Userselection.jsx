@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { apiEndpoint } from '../api';
 import { useNavigate, useLocation } from "react-router-dom"
 import { Calendar, Clock, MapPin, Phone, User, ChevronLeft, ChevronRight, Check, X, Scissors, Info, Search, Home, CalendarIcon, UserCircle, Settings, LogOut } from 'lucide-react'
 import "./userselection.css"
@@ -112,7 +113,7 @@ const UserSelection = () => {
     }
 
     try {
-      const url = `http://localhost:5000/api/barber-timings?uniqueId=${encodeURIComponent(shop.uniqueId)}`
+  const url = apiEndpoint(`/api/barber-timings?uniqueId=${encodeURIComponent(shop.uniqueId)}`)
       console.log("Fetching barbers from URL:", url)
 
       const response = await fetch(url, {

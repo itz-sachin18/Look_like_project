@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { apiEndpoint } from '../api';
 import { useNavigate } from 'react-router-dom';
 import './sign_u.css';
 
@@ -31,7 +32,7 @@ const Sign_u = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/auth/register', {
+      const response = await fetch(apiEndpoint('/api/auth/register'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

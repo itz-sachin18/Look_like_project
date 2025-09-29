@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { apiEndpoint } from '../api';
 import { Bar } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -31,7 +32,7 @@ const Barberhome = () => {
     const fetchuserdata = async () => {
       try {
         console.log("hiiii");
-        const response = await axios.get("http://localhost:5000/api/checkvaliduser", {
+  const response = await axios.get(apiEndpoint("/api/checkvaliduser"), {
           withCredentials: true, // Ensures cookies are sent
         });
 
@@ -53,7 +54,7 @@ const Barberhome = () => {
     console.log("Before logout:", document.cookie); // Debug cookies in the browser
 
     try {
-      const response = await axios.post("http://localhost:5000/api/logout", {}, {
+  const response = await axios.post(apiEndpoint("/api/logout"), {}, {
         withCredentials: true,
       });
 

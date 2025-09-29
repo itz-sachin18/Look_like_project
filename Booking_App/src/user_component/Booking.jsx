@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
+import { apiEndpoint } from '../api';
 import { Calendar, Clock, MapPin, Phone, User, ChevronLeft, Check, Info, Search, Home, CalendarIcon, UserCircle, Settings, LogOut, Mail, Scissors } from 'lucide-react'
 import "./booking.css"
 
@@ -68,7 +69,7 @@ const Booking = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/bookings", {
+  const response = await fetch(apiEndpoint("/api/bookings"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

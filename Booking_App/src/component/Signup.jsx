@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { apiEndpoint } from '../api';
 import "./SignUp.css";
 import { useNavigate } from "react-router-dom";
 
@@ -29,7 +30,7 @@ const SignUp = () => {
     try {
       console.log("Sending data to backend:", formData);
   
-      const response = await axios.post("http://localhost:5000/api/signup", formData);
+  const response = await axios.post(apiEndpoint("/api/signup"), formData);
       console.log("Response received:", response.data);
   
       setMessage(response.data.message);

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { apiEndpoint } from '../api';
 import './login_u.css';
 
 const Login_u = () => {
@@ -24,7 +25,7 @@ const Login_u = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/auth/login',
+        apiEndpoint('/api/auth/login'),
         { phoneNumber, password },
         { withCredentials: true }
       );

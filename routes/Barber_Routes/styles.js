@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const BarberShop = require('../../../servers/model/barber/shop'); // Adjust the path to your BarberShop model
+const BarberShop = require('../../model/barber/shop') // Adjust the path to your BarberShop model
 
 router.post('/', async (req, res) => {
   try {

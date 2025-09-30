@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import axios from "axios"
-import { apiEndpoint } from '../api';
 import { useNavigate, useLocation, Link } from "react-router-dom"
 import { Clock, Mail, MapPin, Store, User, Phone, FileText } from "lucide-react"
 import "./barberform.css"
@@ -59,7 +58,9 @@ const Barberform = () => {
     try {
       console.log("Form data before submission:", formData)
 
-  const response = await axios.post(apiEndpoint("/api/barbershops"), {
+import { API_BASE_URL } from '../apiConfig';
+// ...existing code...
+  const response = await axios.post(`${API_BASE_URL}/api/barbershops`, {
         adminId, // Send admin ID
         ...formData,
       })

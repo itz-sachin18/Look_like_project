@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { apiEndpoint } from '../api';
 import { useNavigate, useLocation, Link } from "react-router-dom"
 import { Clock, Users, Scissors, Plus, Check } from "lucide-react"
 import "./Addbarbers.css"
@@ -81,7 +80,9 @@ const Addbarbers = () => {
     }
 
     try {
-  const response = await fetch(apiEndpoint("/api/barbers"), {
+import { API_BASE_URL } from '../apiConfig';
+// ...existing code...
+  const response = await fetch(`${API_BASE_URL}/api/barbers`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ barberNames, selectedStyles, uniqueId }),

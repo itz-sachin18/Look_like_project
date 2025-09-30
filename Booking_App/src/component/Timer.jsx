@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import { useLocation, useNavigate, Link } from "react-router-dom"
 import { Clock, User, Scissors, Check, AlertCircle } from 'lucide-react'
-import { apiEndpoint } from '../api';
 import "./timer.css"
 
 const Timer = () => {
@@ -135,7 +134,9 @@ const Timer = () => {
     console.log("Sending data to backend:", dataToSend)
 
     try {
-  const response = await fetch(apiEndpoint(`/api/timings/save-timings/${uniqueId}`), {
+import { API_BASE_URL } from '../apiConfig';
+// ...existing code...
+  const response = await fetch(`${API_BASE_URL}/api/timings/save-timings/${uniqueId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,9 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { apiEndpoint } from '../api';
 import { Bar } from 'react-chartjs-2';
 import {
+import { API_BASE_URL } from '../apiConfig';
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
@@ -32,7 +32,8 @@ const Barberhome = () => {
     const fetchuserdata = async () => {
       try {
         console.log("hiiii");
-  const response = await axios.get(apiEndpoint("/api/checkvaliduser"), {
+import { API_BASE_URL } from '../apiConfig';
+        const response = await axios.get(`${API_BASE_URL}/api/checkvaliduser`, {
           withCredentials: true, // Ensures cookies are sent
         });
 
@@ -54,7 +55,7 @@ const Barberhome = () => {
     console.log("Before logout:", document.cookie); // Debug cookies in the browser
 
     try {
-  const response = await axios.post(apiEndpoint("/api/logout"), {}, {
+      const response = await axios.post(`${API_BASE_URL}/api/logout`, {}, {
         withCredentials: true,
       });
 

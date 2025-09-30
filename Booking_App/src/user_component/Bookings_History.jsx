@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
 import { Home, Search, CalendarIcon, UserCircle, Settings, LogOut, Clock, Scissors, User, QrCode } from "lucide-react"
 import axios from "axios"
-import { apiEndpoint } from '../api';
 import { QRCodeCanvas } from "qrcode.react"
 import "./booking_history.css"
 
@@ -33,7 +32,7 @@ const BookingsHistory = () => {
       }
 
       try {
-  const response = await axios.get(apiEndpoint(`/api/user/${userId}`), {
+        const response = await axios.get(`http://localhost:5000/api/user/${userId}`, {
           withCredentials: true,
         })
 
@@ -58,7 +57,7 @@ const BookingsHistory = () => {
 
   const handleLogout = async () => {
     try {
-  await axios.post(apiEndpoint("/api/auth/logout"), {}, { withCredentials: true })
+      await axios.post("http://localhost:5000/api/auth/logout", {}, { withCredentials: true })
       localStorage.removeItem("userData")
       navigate("/userlogin")
     } catch (err) {

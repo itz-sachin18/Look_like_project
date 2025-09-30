@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
-import { apiEndpoint } from '../api';
 import { Calendar, Clock, MapPin, Phone, User, ChevronLeft, Check, Info, Search, Home, CalendarIcon, UserCircle, Settings, LogOut, Mail, Scissors } from 'lucide-react'
+import { API_BASE_URL } from '../apiConfig';
 import "./booking.css"
 
 const Booking = () => {
@@ -69,7 +69,7 @@ const Booking = () => {
     }
 
     try {
-  const response = await fetch(apiEndpoint("/api/bookings"), {
+      const response = await fetch(`${API_BASE_URL}/api/bookings`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

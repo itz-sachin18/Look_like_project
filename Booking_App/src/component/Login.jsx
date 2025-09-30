@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { apiEndpoint } from '../api';
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -14,7 +13,9 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        apiEndpoint("/api/login"),
+import { API_BASE_URL } from '../apiConfig';
+// ...existing code...
+  `${API_BASE_URL}/api/login`,
         { email, password },
         { withCredentials: true }
       );

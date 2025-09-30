@@ -25,7 +25,6 @@ import BookingsHistory from './user_component/Bookings_History'
 import Qrcode from './component/Qrcode'    
 import Profile from './component/Profile'
 import Staticpage from './landing/Staticpage'
-import NotFound from './NotFound';
 
 
 
@@ -84,7 +83,6 @@ function App() {
       <Route path="/booking" element={<Booking />} />
       <Route path="/appointments" element={<Appointment />} />
       <Route path = "/bookinghistory" element={<BookingsHistory/>}/>
-      <Route path="*" element={<NotFound />} />
     </Routes>
     </Router>
   )

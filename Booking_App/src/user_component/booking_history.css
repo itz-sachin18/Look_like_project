@@ -1,4 +1,5 @@
 /* Base Layout */
+@import './booking_history.css';
 .bh-layout {
   display: flex;
   min-height: 100vh;

@@ -1,4 +1,5 @@
 /* Keep existing styles for body, app-container, top-navigation, sidebar, etc. */
+@import './barberform.css';
 body {
   font-family: Arial, sans-serif;
   margin: 0;

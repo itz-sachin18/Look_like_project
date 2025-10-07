@@ -1,4 +1,6 @@
 /* Body Styling */
+@import './Login.css';
+
 body {
     margin: 0;
     padding: 0;

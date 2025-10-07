@@ -1,5 +1,5 @@
 /* Import the sidebar styles from userselection.css */
-@import './userselection.css';
+@import './userSearch.css';
 
 /* Override and add specific styles for search page */
 .search-section {

@@ -6,7 +6,7 @@
   font-family: system-ui, -apple-system, sans-serif;
 }
 
-/* Sidebar */
+
 .us-sidebar {
   width: 250px;
   background-color: #172554;
@@ -98,7 +98,7 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Main Content */
+
 .us-main {
   flex: 1;
   margin-left: 250px;
@@ -109,7 +109,7 @@
   border-radius: 10;
 }
 
-/* Top Navbar */
+
 .us-topbar {
   height: 64px;
   background-color: #172554;
@@ -134,7 +134,7 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* Content Area */
+
 .us-content {
   flex: 1;
   padding: 1.5rem;
@@ -150,7 +150,6 @@
   gap: 1.5rem;
 }
 
-/* Booking Header */
 .us-booking-header {
   display: flex;
   justify-content: space-between;
@@ -185,7 +184,7 @@
   border-radius: 9999px;
 }
 
-/* Shop Header */
+
 .us-shop-header {
   display: flex;
   flex-direction: column;
@@ -255,7 +254,6 @@
   color: #0f172a;
 }
 
-/* Selection Sections */
 .us-selection-section {
   display: flex;
   flex-direction: column;
@@ -285,7 +283,7 @@
   margin: 0;
 }
 
-/* Barber Selection */
+
 .us-barber-grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -341,7 +339,7 @@
   height: 0.875rem;
 }
 
-/* Time Slots */
+
 .us-time-grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -386,7 +384,7 @@
   background-color: #4f46e5;
 }
 
-/* Modal */
+
 .us-modal-overlay {
   position: fixed;
   top: 0;
@@ -569,7 +567,6 @@
   cursor: not-allowed;
 }
 
-/* Loading, Error, Empty States */
 .us-loading,
 .us-error,
 .us-empty {
@@ -611,7 +608,7 @@
   color: #64748b;
 }
 
-/* Error Page */
+
 .us-error-container {
   display: flex;
   justify-content: center;
@@ -674,7 +671,7 @@
   background-color: #4f46e5;
 }
 
-/* Icons */
+
 .us-icon {
   width: 1.25rem;
   height: 1.25rem;
@@ -685,7 +682,7 @@
   height: 1rem;
 }
 
-/* Responsive Design */
+
 @media (min-width: 640px) {
   .us-details-grid {
     grid-template-columns: repeat(2, 1fr);

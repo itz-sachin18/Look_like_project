@@ -6,6 +6,7 @@ import { Home, Search, CalendarIcon, UserCircle, Settings, LogOut, Clock, Scisso
 import axios from "axios"
 import { QRCodeCanvas } from "qrcode.react"
 import "./booking_history.css"
+import BASE_URL from "../api"
 
 const BookingsHistory = () => {
   const navigate = useNavigate()
@@ -32,7 +33,7 @@ const BookingsHistory = () => {
       }
 
       try {
-        const response = await axios.get(`http://localhost:5000/api/user/${userId}`, {
+        const response = await axios.get(`${BASE_URL}/api/user/${userId}`, {
           withCredentials: true,
         })
 
@@ -57,7 +58,7 @@ const BookingsHistory = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post("http://localhost:5000/api/auth/logout", {}, { withCredentials: true })
+      await axios.post(`${BASE_URL}/api/auth/logout`, {}, { withCredentials: true })
       localStorage.removeItem("userData")
       navigate("/userlogin")
     } catch (err) {

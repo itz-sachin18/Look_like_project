@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './login_u.css';
+import BASE_URL from '../api';
 
 
 const Login_u = () => {
@@ -25,7 +26,7 @@ const Login_u = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${API_BASE_URL}/api/auth/login`,
+        `${BASE_URL}/api/auth/login`,
         { phoneNumber, password },
         { withCredentials: true }
       );

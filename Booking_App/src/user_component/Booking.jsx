@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
 import { Calendar, Clock, MapPin, Phone, User, ChevronLeft, Check, Info, Search, Home, CalendarIcon, UserCircle, Settings, LogOut, Mail, Scissors } from 'lucide-react'
-import { API_BASE_URL } from '../apiConfig';
+
 import "./booking.css"
+import BASE_URL from "../api"
 
 const Booking = () => {
   const [isLoading, setIsLoading] = useState(false)
@@ -69,7 +70,7 @@ const Booking = () => {
     }
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/bookings`, {
+      const response = await fetch(`${BASE_URL}/api/bookings`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

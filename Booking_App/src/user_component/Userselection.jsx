@@ -2,12 +2,12 @@ import { useState, useEffect } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
 import { Calendar, Clock, MapPin, Phone, User, ChevronLeft, ChevronRight, Check, X, Scissors, Info, Search, Home, CalendarIcon, UserCircle, Settings, LogOut } from 'lucide-react'
 import "./userselection.css"
+import BASE_URL from "../api"
 
 const UserSelection = () => {
   const [shopDetails, setShopDetails] = useState(null)
   const [selectedBarber, setSelectedBarber] = useState("")
   const [selectedBarberId, setSelectedBarberId] = useState("")
-import { API_BASE_URL } from '../apiConfig';
   const [selectedTime, setSelectedTime] = useState("")
   const [selectedStyle, setSelectedStyle] = useState("")
   const [selectedStyleId, setSelectedStyleId] = useState("")
@@ -64,7 +64,7 @@ import { API_BASE_URL } from '../apiConfig';
       return
     }
 
-      const url = `${API_BASE_URL}/api/barber-timings?uniqueId=${encodeURIComponent(shop.uniqueId)}`
+    const parseTime = (timeStr) => {
       const [hourStr, period] = timeStr.match(/(\d+)(am|pm)/).slice(1)
       let hour = Number.parseInt(hourStr, 10)
       if (period === "pm" && hour !== 12) hour += 12
@@ -113,7 +113,7 @@ import { API_BASE_URL } from '../apiConfig';
     }
 
     try {
-      const url = `http://localhost:5000/api/barber-timings?uniqueId=${encodeURIComponent(shop.uniqueId)}`
+      const url = `${BASE_URL}/api/barber-timings?uniqueId=${encodeURIComponent(shop.uniqueId)}`
       console.log("Fetching barbers from URL:", url)
 
       const response = await fetch(url, {

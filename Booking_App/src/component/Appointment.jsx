@@ -5,6 +5,7 @@ import { useLocation, useNavigate, Link } from "react-router-dom"
 import axios from "axios"
 import { Calendar, Clock, User, CheckCircle, AlertCircle } from "lucide-react"
 import "./Appointment.css"
+import BASE_URL from "../api"
 
 const Appointment = () => {
   const { state } = useLocation()
@@ -36,16 +37,14 @@ const Appointment = () => {
 
     const fetchData = async () => {
       try {
-      import { API_BASE_URL } from '../apiConfig';
         setLoading(true)
-import { API_BASE_URL } from '../apiConfig';
-  const shopResponse = await axios.get(`${API_BASE_URL}/api/shops/admin/${adminId}`, {
+        const shopResponse = await axios.get(`${BASE_URL}/api/shops/admin/${adminId}`, {
           withCredentials: true,
         })
 
         if (shopResponse.data && shopResponse.data.uniqueId) {
           const barbersResponse = await axios.get(
-            `${API_BASE_URL}/api/appointments/${shopResponse.data.uniqueId}`,
+            `${BASE_URL}/api/appointments/${shopResponse.data.uniqueId}`,
             { withCredentials: true },
           )
 
@@ -55,12 +54,15 @@ import { API_BASE_URL } from '../apiConfig';
             setSelectedBarber(names[0])
             const firstBarber = barbersResponse.data[0]
             setSelectedBarberId(firstBarber.barberId)
-              const shopResponse = await axios.get(`${API_BASE_URL}/api/shops/admin/${adminId}`, {
+          }
         } else {
           setError("No shop found for this admin.")
         }
       } catch (err) {
-                const barbersResponse = await axios.get(`${API_BASE_URL}/api/appointments/${shopResponse.data.uniqueId}`, { withCredentials: true })
+        console.error("Error fetching barbers:", err)
+        setError("Failed to load barbers. Please try again.")
+      } finally {
+        setLoading(false)
       }
     }
 
@@ -74,7 +76,7 @@ import { API_BASE_URL } from '../apiConfig';
       try {
         setAppointmentsLoading(true)
         setAppointmentsError(null)
-  const response = await axios.get(`${API_BASE_URL}/api/api/bookings/barber/${selectedBarberId}`, {
+        const response = await axios.get(`${BASE_URL}/api/api/bookings/barber/${selectedBarberId}`, {
           withCredentials: true,
         })
 
@@ -90,7 +92,7 @@ import { API_BASE_URL } from '../apiConfig';
         setAppointments(updatedAppointments)
       } catch (err) {
         console.error("Error fetching appointments:", err)
-              const response = await axios.get(`${API_BASE_URL}/api/bookings/barber/${selectedBarberId}`, {
+        setAppointmentsError("Failed to load appointments. Please try again.")
       } finally {
         setAppointmentsLoading(false)
       }

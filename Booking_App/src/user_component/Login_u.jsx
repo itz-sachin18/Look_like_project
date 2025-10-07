@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './login_u.css';
-import { API_BASE_URL } from '../apiConfig';
+
 
 const Login_u = () => {
   const [phoneNumber, setPhoneNumber] = useState('');

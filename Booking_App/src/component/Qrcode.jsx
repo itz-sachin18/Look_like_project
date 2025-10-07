@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { QrReader } from "react-qr-reader";
 import axios from "axios";
+import BASE_URL from "../api";
 
 const QrCode = () => {
   const { state } = useLocation();
@@ -65,9 +66,7 @@ const QrCode = () => {
   const updateAppointmentStatus = async () => {
     try {
       await axios.put(
-import { API_BASE_URL } from '../apiConfig';
-// ...existing code...
-  `${API_BASE_URL}/api/bookings/${userId}`,
+        `${BASE_URL}/api/bookings/${userId}`,
         { status: "completed" },
         { withCredentials: true }
       );

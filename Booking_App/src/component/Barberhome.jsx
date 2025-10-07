@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Bar } from 'react-chartjs-2';
 import {
-import { API_BASE_URL } from '../apiConfig';
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
@@ -13,6 +12,7 @@ import { API_BASE_URL } from '../apiConfig';
   Legend,
 } from 'chart.js';
 import "./barberhome.css";
+import BASE_URL from "../api";
 
 ChartJS.register(
   CategoryScale,
@@ -32,8 +32,7 @@ const Barberhome = () => {
     const fetchuserdata = async () => {
       try {
         console.log("hiiii");
-import { API_BASE_URL } from '../apiConfig';
-        const response = await axios.get(`${API_BASE_URL}/api/checkvaliduser`, {
+        const response = await axios.get(`${BASE_URL}/api/checkvaliduser`, {
           withCredentials: true, // Ensures cookies are sent
         });
 
@@ -55,7 +54,7 @@ import { API_BASE_URL } from '../apiConfig';
     console.log("Before logout:", document.cookie); // Debug cookies in the browser
 
     try {
-      const response = await axios.post(`${API_BASE_URL}/api/logout`, {}, {
+      const response = await axios.post(`${BASE_URL}/api/logout`, {}, {
         withCredentials: true,
       });
 

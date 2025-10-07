@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './sign_u.css';
-import { API_BASE_URL } from '../apiConfig';
+import BASE_URL from '../api';
 
 const Sign_u = () => {
   const [formData, setFormData] = useState({
@@ -32,7 +32,7 @@ const Sign_u = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
+      const response = await fetch(`${BASE_URL}/api/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

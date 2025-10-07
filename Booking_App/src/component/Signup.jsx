@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./SignUp.css";
 import { useNavigate } from "react-router-dom";
+import BASE_URL from "../api";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -29,9 +30,7 @@ const SignUp = () => {
     try {
       console.log("Sending data to backend:", formData);
   
-import { API_BASE_URL } from '../apiConfig';
-// ...existing code...
-  const response = await axios.post(`${API_BASE_URL}/api/signup`, formData);
+      const response = await axios.post(`${BASE_URL}/api/signup`, formData);
       console.log("Response received:", response.data);
   
       setMessage(response.data.message);

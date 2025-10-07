@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Home, Search, Calendar, UserCircle, Settings, LogOut } from 'lucide-react';
 import axios from 'axios';
-import { API_BASE_URL } from '../apiConfig';
 import { Bar } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -14,6 +13,7 @@ import {
   Legend,
 } from 'chart.js';
 import './user.css';
+import BASE_URL from '../api';
 
 ChartJS.register(
   CategoryScale,
@@ -39,7 +39,7 @@ const User = () => {
     console.log('[User Page] useEffect - Fetching user data');
     const fetchUser = async () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}/api/auth/user`, {
+        const response = await axios.get(`${BASE_URL}/api/auth/user`, {
           withCredentials: true,
         });
         console.log('[User Page] User data received:', response.data);
@@ -63,7 +63,7 @@ const User = () => {
   const handleLogout = async () => {
     console.log('[User Page] Logout initiated');
     try {
-      await axios.post(`${API_BASE_URL}/api/auth/logout`, {}, { withCredentials: true });
+      await axios.post(`${BASE_URL}/api/auth/logout`, {}, { withCredentials: true });
       localStorage.removeItem('userId');
       navigate('/userlogin');
     } catch (err) {

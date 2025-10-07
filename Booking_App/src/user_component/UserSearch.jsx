@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Home, Search, Calendar as CalendarIcon, UserCircle, Settings, LogOut } from 'lucide-react';
 import "./userSearch.css";
-import { API_BASE_URL } from '../apiConfig';
+import BASE_URL from "../api";
 
 const UserSearch = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -20,7 +20,7 @@ const UserSearch = () => {
 
     try {
       const response = await fetch(
-        `${API_BASE_URL}/api/search?query=${encodeURIComponent(searchTerm)}`,
+        `${BASE_URL}/api/search?query=${encodeURIComponent(searchTerm)}`,
         {
           method: "GET",
           headers: {

@@ -1,10 +1,11 @@
+"use client"
 
 import { useState } from "react"
 import axios from "axios"
 import { useNavigate, useLocation, Link } from "react-router-dom"
 import { Clock, Mail, MapPin, Store, User, Phone, FileText } from "lucide-react"
 import "./barberform.css"
-import { API_BASE_URL } from '../apiConfig';
+import BASE_URL from "../api"
 
 const Barberform = () => {
   const navigate = useNavigate()
@@ -57,7 +58,8 @@ const Barberform = () => {
 
     try {
       console.log("Form data before submission:", formData)
-      const response = await axios.post(`${API_BASE_URL}/api/barbershops`, {
+
+      const response = await axios.post(`${BASE_URL}/api/barbershops`, {
         adminId, // Send admin ID
         ...formData,
       })

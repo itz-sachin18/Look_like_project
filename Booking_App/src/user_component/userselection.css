@@ -1,6 +1,3 @@
-/* User Selection Styles - Unique class names with 'us-' prefix to avoid conflicts */
-
-/* Layout */
 @import './userselection.css';
 .us-layout {
   display: flex;

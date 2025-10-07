@@ -22,7 +22,7 @@ import Booking from './user_component/Booking'
 import ProtectedRoute from './component/ProtectedRoute'
 import Appointment from './component/Appointment'
 import BookingsHistory from './user_component/Bookings_History'
-import Qrcode from './component/Qrcode'    
+// import Qrcode from './component/Qrcode'    
 import Profile from './component/Profile'
 import Staticpage from './landing/Staticpage'
 
@@ -51,7 +51,7 @@ function App() {
       <Route path="/barberform" element={<Barberform />} />
       <Route path="/add-barbers" element={<Addbarbers/>} />
       <Route path="/timer-styles" element={<Timer/>} />
-      <Route path="/qrcode" element={<Qrcode/>}/>
+      {/* <Route path="/qrcode" element={<Qrcode/>}/> */}
         <Route path="/profile" element={<Profile/>}/>
               <Route path="/" element={<Staticpage/>}/>
     

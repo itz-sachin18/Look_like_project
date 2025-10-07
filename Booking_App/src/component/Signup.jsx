@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./SignUp.css";
+import "./Signup.css";
 import { useNavigate } from "react-router-dom";
 import BASE_URL from "../api";
 

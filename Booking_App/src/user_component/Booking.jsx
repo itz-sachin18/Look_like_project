@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
 import { Calendar, Clock, MapPin, Phone, User, ChevronLeft, Check, Info, Search, Home, CalendarIcon, UserCircle, Settings, LogOut, Mail, Scissors } from 'lucide-react'
 
-import "./booking.css"
+import "./Booking.css"
 import BASE_URL from "../api"
 
 const Booking = () => {

@@ -1,7 +1,7 @@
+@import './Booking.css';
 /* Booking Page Styles - Unique class names with 'us-' prefix to avoid conflicts */
 
 /* Layout */
-@import './Booking.css';
 .us-layout {
   display: flex;
   min-height: 100vh;

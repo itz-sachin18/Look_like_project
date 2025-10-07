@@ -1,7 +1,7 @@
+@import './user.css';
 /* App.css */
 
 /* Add new styles at the top */
-@import './user.css';
 .app-container {
   min-height: 100vh;
 }

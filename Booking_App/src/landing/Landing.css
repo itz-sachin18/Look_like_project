@@ -1,5 +1,5 @@
-/* General container styles */
 @import './Landing.css';
+/* General container styles */
 .landing-containers {
     display: flex;
     flex-direction: column;

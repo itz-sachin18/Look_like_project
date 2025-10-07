@@ -11,7 +11,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import "./barberhome.css";
+import "./Barberhome.css";
 import BASE_URL from "../api";
 
 ChartJS.register(

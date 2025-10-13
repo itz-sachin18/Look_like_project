@@ -92,9 +92,10 @@ router.post('/login', async (req, res) => {
     });
 
     res.cookie("token", token, {
-      httpOnly: true,
-      secure: false, // Change to true in production (HTTPS required)
-      sameSite: "Lax",
+     httpOnly: true,
+  secure: true, // must be true in production (HTTPS)
+  sameSite: "None", // crucial for cross-origin cookies
+  maxAge: 60 * 60 * 1000, 
     });
 
     // Include uniqueId in the response

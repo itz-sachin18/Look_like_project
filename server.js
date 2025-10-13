@@ -25,7 +25,9 @@ const app = express();
 
 // Allowed origins for CORS
 const allowedOrigins = [
-  "http://localhost:5173",
+  "http://localhost:5173", // local dev
+  "https://look-like-project.vercel.app",
+  "https://look-like-project-git-main-itz-sachin18s-projects.vercel.app",
   "https://look-like-project-owgmefilr-itz-sachin18s-projects.vercel.app"
 ];
 
@@ -33,16 +35,19 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: function (origin, callback) {
-      // allow requests with no origin (like Postman)
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
+      if (!origin) return callback(null, true); // allow Postman or server-to-server requests
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
       } else {
-        callback(new Error("Not allowed by CORS"));
+        return callback(new Error("Not allowed by CORS: " + origin));
       }
     },
-    credentials: true,
+    credentials: true, // allow cookies
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
   })
 );
+
 
 // Middleware
 app.use(express.json());

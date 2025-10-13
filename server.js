@@ -25,28 +25,26 @@ const app = express();
 
 // Allowed origins for CORS
 const allowedOrigins = [
-  "http://localhost:5173", // local dev
+  "http://localhost:5173",
   "https://look-like-project.vercel.app",
   "https://look-like-project-git-main-itz-sachin18s-projects.vercel.app",
   "https://look-like-project-owgmefilr-itz-sachin18s-projects.vercel.app"
 ];
 
-// CORS middleware
 app.use(
   cors({
     origin: function (origin, callback) {
-      if (!origin) return callback(null, true); // allow Postman or server-to-server requests
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      } else {
-        return callback(new Error("Not allowed by CORS: " + origin));
+      if (!origin) return callback(null, true); // Allow non-browser requests
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const msg = `CORS policy does not allow access from ${origin}`;
+        return callback(new Error(msg), false);
       }
+      return callback(null, true);
     },
-    credentials: true, // allow cookies
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+    credentials: true, // Allow cookies
   })
 );
+
 
 
 // Middleware

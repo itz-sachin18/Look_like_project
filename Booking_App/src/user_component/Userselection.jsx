@@ -254,6 +254,21 @@ const UserSelection = () => {
     setSidebarCollapsed(!sidebarCollapsed)
   }
 
+  const handleLogout = async () => {
+    try {
+      await fetch(`${BASE_URL}/api/auth/logout`, {
+        method: "POST",
+        credentials: "include",
+      })
+    } catch (error) {
+      console.error("Logout error:", error)
+    } finally {
+      localStorage.removeItem("userData")
+      localStorage.removeItem("userId")
+      navigate("/userlogin")
+    }
+  }
+
   // Navigation items for sidebar
   const navItems = [
     { icon: <Home className="us-nav-icon" />, label: "Dashboard", path: "/dashboard" },
@@ -315,7 +330,7 @@ const UserSelection = () => {
             className="us-nav-item"
             onClick={(e) => {
               e.preventDefault()
-              // Handle logout
+              handleLogout()
             }}
           >
             <LogOut className="us-nav-icon" />
@@ -333,6 +348,10 @@ const UserSelection = () => {
           </div>
           <div className="us-topbar-right">
             <div className="us-user-id">User ID: {userId || "681f869d1827a9895634dda"}</div>
+            <button className="us-logout-btn" onClick={handleLogout}>
+              <LogOut className="us-icon-small" />
+              Logout
+            </button>
           </div>
         </header>
 

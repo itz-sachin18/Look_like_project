@@ -607,3 +607,256 @@
     width: 100%;
   }
 }
+/* UX refresh: scoped booking confirmation flow */
+.us-layout .us-booking-container {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.us-layout .us-booking-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.us-layout .us-back-btn,
+.us-layout .us-back-button,
+.us-layout .us-cancel-btn,
+.us-layout .us-confirm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.us-layout .us-back-btn,
+.us-layout .us-back-button,
+.us-layout .us-cancel-btn {
+  border: 1px solid #d9e1ec;
+  background: #ffffff;
+  color: #172033;
+}
+
+.us-layout .us-confirm-btn {
+  border: 0;
+  background: #17324f;
+  color: #ffffff;
+}
+
+.us-layout .us-confirm-btn:hover {
+  background: #10243b;
+}
+
+.us-layout .us-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.us-layout .us-booking-details-card,
+.us-layout .us-booking-form-card,
+.us-layout .us-success-card,
+.us-layout .us-error-card {
+  border: 1px solid #d9e1ec;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+}
+
+.us-layout .us-card-title,
+.us-layout .us-success-title,
+.us-layout .us-error-title {
+  color: #172033;
+  letter-spacing: 0;
+}
+
+.us-layout .us-section-icon,
+.us-layout .us-detail-icon,
+.us-layout .us-success-icon {
+  color: #c89b3c;
+}
+
+.us-layout .us-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.us-layout .us-detail-item {
+  min-height: 88px;
+  padding: 14px;
+  border: 1px solid #d9e1ec;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.us-layout .us-detail-label {
+  color: #667085;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.us-layout .us-detail-value {
+  color: #172033;
+  overflow-wrap: anywhere;
+}
+
+.us-layout .us-booking-form-card {
+  display: grid;
+  gap: 16px;
+  margin-top: 18px;
+  padding: 22px;
+}
+
+.us-layout .us-form-group {
+  display: grid;
+  gap: 8px;
+}
+
+.us-layout .us-form-label {
+  color: #334155;
+  font-weight: 700;
+}
+
+.us-layout .us-input-wrapper {
+  position: relative;
+}
+
+.us-layout .us-input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  color: #94a3b8;
+  transform: translateY(-50%);
+}
+
+.us-layout .us-form-input {
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 14px 12px 42px;
+  border: 1px solid #cfd8e3;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.us-layout .us-form-input:focus {
+  border-color: #c89b3c;
+  box-shadow: 0 0 0 3px rgba(200, 155, 60, 0.18);
+  outline: none;
+}
+
+.us-layout .us-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.us-layout .us-highlight {
+  color: #9a6a18;
+  font-weight: 800;
+}
+
+.us-layout .us-status-pending {
+  color: #b7791f;
+  font-weight: 800;
+}
+
+@media (max-width: 620px) {
+  .us-layout .us-form-actions,
+  .us-layout .us-booking-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .us-layout .us-cancel-btn,
+  .us-layout .us-confirm-btn,
+  .us-layout .us-back-btn {
+    width: 100%;
+  }
+}
+
+/* Final responsive hardening for booking form pages */
+.us-layout {
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.us-layout .us-sidebar {
+  width: 264px;
+  min-width: 264px;
+}
+
+.us-layout .us-main {
+  width: calc(100% - 264px);
+  min-width: 0;
+  margin-left: 264px;
+  padding-top: 0;
+}
+
+.us-layout .us-content,
+.us-layout .us-booking-container {
+  width: 100%;
+  max-width: 1040px;
+  min-width: 0;
+  margin: 0 auto;
+}
+
+.us-layout .us-booking-header,
+.us-layout .us-booking-details-card,
+.us-layout .us-booking-form-card,
+.us-layout .us-success-card,
+.us-layout .us-error-card,
+.us-layout .us-details-grid {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.us-layout .us-detail-item,
+.us-layout .us-form-group,
+.us-layout .us-input-wrapper,
+.us-layout .us-form-input {
+  min-width: 0;
+}
+
+.us-layout .us-detail-value,
+.us-layout .us-success-details,
+.us-layout .us-error-message {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 560px) {
+  .us-layout .us-booking-details-card,
+  .us-layout .us-booking-form-card,
+  .us-layout .us-success-card,
+  .us-layout .us-error-card {
+    padding: 16px;
+  }
+
+  .us-layout .us-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .us-layout .us-sidebar {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+  }
+
+  .us-layout .us-main {
+    width: 100%;
+    margin-left: 0;
+  }
+}

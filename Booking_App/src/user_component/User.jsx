@@ -218,6 +218,10 @@ const User = () => {
           </div>
           <div className="us-topbar-right">
             <div className="us-user-id">User ID: {userId || 'Not available'}</div>
+            <button className="us-logout-btn" onClick={handleLogout}>
+              <LogOut className="us-icon-small" />
+              Logout
+            </button>
           </div>
         </header>
 

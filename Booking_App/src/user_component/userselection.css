@@ -747,3 +747,319 @@
     grid-template-columns: 1fr;
   }
 }
+/* UX refresh: scoped appointment selection flow */
+.us-error-container {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #f4f7fb;
+}
+
+.us-error-container .us-error-card,
+.us-layout .us-details-card,
+.us-layout .us-selection-section,
+.us-layout .us-modal {
+  border: 1px solid #d9e1ec;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+}
+
+.us-layout .us-booking-container {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.us-layout .us-shop-header,
+.us-layout .us-booking-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.us-layout .us-shop-name,
+.us-layout .us-section-title,
+.us-layout .us-modal-title {
+  color: #172033;
+  letter-spacing: 0;
+}
+
+.us-layout .us-current-time,
+.us-layout .us-date,
+.us-layout .us-time-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 7px 12px;
+  border: 1px solid #d9e1ec;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #667085;
+}
+
+.us-layout .us-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.us-layout .us-detail-item {
+  min-height: 88px;
+  padding: 14px;
+  border: 1px solid #d9e1ec;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.us-layout .us-detail-icon,
+.us-layout .us-section-icon {
+  color: #c89b3c;
+}
+
+.us-layout .us-detail-label {
+  color: #667085;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.us-layout .us-detail-value,
+.us-layout .us-barber-name,
+.us-layout .us-style-name,
+.us-layout .us-time-text {
+  color: #172033;
+}
+
+.us-layout .us-selection-section {
+  margin-top: 18px;
+  padding: 22px;
+}
+
+.us-layout .us-section-desc,
+.us-layout .us-modal-desc {
+  color: #667085;
+}
+
+.us-layout .us-barber-grid,
+.us-layout .us-time-grid,
+.us-layout .us-style-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+}
+
+.us-layout .us-barber-card,
+.us-layout .us-time-card,
+.us-layout .us-style-card {
+  border: 1px solid #d9e1ec;
+  border-radius: 8px;
+  background: #ffffff;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.us-layout .us-barber-card:hover,
+.us-layout .us-time-card:hover,
+.us-layout .us-style-card:hover,
+.us-layout .us-selected {
+  border-color: rgba(200, 155, 60, 0.7);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+}
+
+.us-layout .us-radio {
+  border-color: #cfd8e3;
+}
+
+.us-layout .us-radio-selected {
+  border-color: #c89b3c;
+  background: #c89b3c;
+}
+
+.us-layout .us-select-btn,
+.us-layout .us-confirm-btn,
+.us-layout .us-back-btn,
+.us-layout .us-back-button,
+.us-layout .us-cancel-btn,
+.us-layout .us-close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.us-layout .us-select-btn,
+.us-layout .us-confirm-btn {
+  border: 0;
+  background: #17324f;
+  color: #ffffff;
+}
+
+.us-layout .us-back-btn,
+.us-layout .us-back-button,
+.us-layout .us-cancel-btn,
+.us-layout .us-close-btn {
+  border: 1px solid #d9e1ec;
+  background: #ffffff;
+  color: #172033;
+}
+
+.us-layout .us-lunch-break {
+  background: #fff8eb;
+  color: #9a6a18;
+}
+
+.us-layout .us-modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.5);
+  z-index: 1000;
+}
+
+.us-layout .us-modal {
+  width: min(720px, 100%);
+  max-height: min(760px, calc(100vh - 48px));
+  overflow: auto;
+  padding: 22px;
+}
+
+.us-layout .us-modal-header,
+.us-layout .us-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.us-layout .us-modal-footer {
+  margin-top: 18px;
+}
+
+@media (max-width: 620px) {
+  .us-layout .us-shop-header,
+  .us-layout .us-booking-header,
+  .us-layout .us-modal-header,
+  .us-layout .us-modal-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .us-layout .us-select-btn,
+  .us-layout .us-confirm-btn,
+  .us-layout .us-cancel-btn {
+    width: 100%;
+  }
+}
+
+/* Final responsive hardening for appointment selection */
+.us-layout {
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.us-layout .us-sidebar {
+  width: 264px;
+  min-width: 264px;
+}
+
+.us-layout .us-main {
+  width: calc(100% - 264px);
+  min-width: 0;
+  margin-left: 264px;
+  padding-top: 0;
+}
+
+.us-layout .us-content,
+.us-layout .us-booking-container {
+  width: 100%;
+  max-width: 1120px;
+  min-width: 0;
+  margin: 0 auto;
+}
+
+.us-layout .us-details-card,
+.us-layout .us-selection-section,
+.us-layout .us-modal,
+.us-layout .us-shop-header,
+.us-layout .us-booking-header {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.us-layout .us-details-grid,
+.us-layout .us-barber-grid,
+.us-layout .us-time-grid,
+.us-layout .us-style-grid {
+  width: 100%;
+  min-width: 0;
+}
+
+.us-layout .us-barber-card,
+.us-layout .us-time-card,
+.us-layout .us-style-card,
+.us-layout .us-detail-item {
+  min-width: 0;
+}
+
+.us-layout .us-detail-value,
+.us-layout .us-shop-name,
+.us-layout .us-section-desc,
+.us-layout .us-modal-desc,
+.us-layout .us-style-name,
+.us-layout .us-time-text {
+  overflow-wrap: anywhere;
+}
+
+.us-layout .us-modal-overlay {
+  padding: 18px;
+}
+
+@media (max-width: 900px) {
+  .us-layout .us-sidebar {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+  }
+
+  .us-layout .us-main {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .us-layout .us-booking-container {
+    max-width: 100%;
+  }
+
+  .us-layout .us-shop-header,
+  .us-layout .us-booking-header {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .us-layout .us-details-grid,
+  .us-layout .us-barber-grid,
+  .us-layout .us-time-grid,
+  .us-layout .us-style-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .us-layout .us-selection-section,
+  .us-layout .us-details-card,
+  .us-layout .us-modal {
+    padding: 16px;
+  }
+}

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Userbooking.css"
+import BASE_URL from "../api";
 
 const UserBookingPage = () => {
+  const navigate = useNavigate();
   const [selectedShop, setSelectedShop] = useState("");
   const [barbersCount, setBarbersCount] = useState(0);
   const [tokenCount, setTokenCount] = useState(0);
@@ -19,8 +22,26 @@ const UserBookingPage = () => {
     setTokenCount(shop.barbers); // Generate tokens equal to available barbers
   };
 
+  const handleLogout = async () => {
+    try {
+      await fetch(`${BASE_URL}/api/auth/logout`, {
+        method: "POST",
+        credentials: "include",
+      });
+    } catch (error) {
+      console.error("Logout error:", error);
+    } finally {
+      localStorage.removeItem("userData");
+      localStorage.removeItem("userId");
+      navigate("/userlogin");
+    }
+  };
+
   return (
-    <div className="container">
+    <div className="userbooking-page container">
+      <div className="userbooking-actions">
+        <button className="userbooking-logout-btn" onClick={handleLogout}>Logout</button>
+      </div>
       <h1 className="title">User Booking Page</h1>
       <div className="box">
         <label htmlFor="shop-select" className="label">

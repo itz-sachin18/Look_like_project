@@ -61,3 +61,133 @@
     font-weight: bold;
   }
   
+/* UX refresh: legacy user booking page scoped to .userbooking-page */
+.userbooking-page.container {
+  min-height: 100vh;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 32px;
+  background: #f4f7fb;
+  color: #172033;
+}
+
+.userbooking-page .title {
+  margin: 0 0 22px;
+  color: #172033;
+  letter-spacing: 0;
+}
+
+.userbooking-page .box,
+.userbooking-page .info,
+.userbooking-page .tokens {
+  margin-bottom: 18px;
+  padding: 22px;
+  border: 1px solid #d9e1ec;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+}
+
+.userbooking-page .label {
+  display: block;
+  margin-bottom: 8px;
+  color: #334155;
+  font-weight: 700;
+}
+
+.userbooking-page .dropdown {
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 14px;
+  border: 1px solid #cfd8e3;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.userbooking-page .info p {
+  margin: 8px 0;
+  color: #667085;
+}
+
+.userbooking-page .tokens h2 {
+  margin-top: 0;
+}
+
+.userbooking-page .token-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+  gap: 12px;
+}
+
+.userbooking-page .token {
+  display: grid;
+  place-items: center;
+  min-height: 72px;
+  border-radius: 8px;
+  background: #17324f;
+  color: #ffffff;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.userbooking-page .userbooking-actions {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.userbooking-page .userbooking-logout-btn {
+  width: auto;
+  min-width: 104px;
+  min-height: 40px;
+  margin: 0;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #b42318;
+  color: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.userbooking-page .userbooking-logout-btn:hover {
+  background: #931c14;
+}
+
+/* Final responsive hardening for legacy user booking */
+.userbooking-page.container {
+  width: min(100%, 860px);
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.userbooking-page .box,
+.userbooking-page .info,
+.userbooking-page .tokens,
+.userbooking-page .token-container {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.userbooking-page .title,
+.userbooking-page .info p {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 520px) {
+  .userbooking-page.container {
+    padding: 14px;
+  }
+
+  .userbooking-page .box,
+  .userbooking-page .info,
+  .userbooking-page .tokens {
+    padding: 16px;
+  }
+
+  .userbooking-page .userbooking-logout-btn {
+    width: 100%;
+  }
+}

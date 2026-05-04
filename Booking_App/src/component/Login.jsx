@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import BASE_URL from "../api";
+import "./Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -38,7 +39,7 @@ const Login = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="login-page form-container">
       <div className="form-box">
         <h2>Login</h2>
         <form onSubmit={handleLogin}>

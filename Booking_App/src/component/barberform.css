@@ -1,248 +1,470 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f8f9fa;
+/* Barberform component scoped styles */
+.barberform-page {
+  min-height: 100vh;
+  background: #eaf2ff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Container */
-.barber-container {
-  width: 100%;
-  max-width: 500px;
-  margin: 30px auto;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
+.barberform-page .barber-form-wrapper {
+  min-height: 100vh;
+  display: flex;
 }
 
-/* New Barber Form Styles */
-.barber-form-container {
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 1.5rem;
+.barberform-page .barber-top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: linear-gradient(90deg, #1e3a8a 0%, #234175 100%);
+  border-bottom: 3px solid #ffd700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  z-index: 1000;
 }
 
-.barber-form-title {
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.barber-form-card {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-  width: 100%;
-}
-
-.barber-form-header {
-  position: relative;
-}
-
-.barber-form-image {
-  height: 200px;
-  overflow: hidden;
-}
-
-.barber-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.barber-form {
-  padding: 1.5rem;
-  width: 100%;
-  max-width: 100%;
-}
-
-.barber-form-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  width: 100%;
-}
-
-.barber-form-field {
-  margin-bottom: 0.5rem;
-  width: 100%;
-}
-
-.barber-form-field-full {
-  grid-column: 1 / -1;
-}
-
-.barber-form-label {
+.barberform-page .barber-brand {
   display: flex;
   align-items: center;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #444;
-  margin-bottom: 0.75rem;
+  gap: 12px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 1px;
 }
 
-.barber-form-icon {
-  width: 18px;
-  height: 18px;
-  margin-right: 0.5rem;
-  color: #007bff;
-  flex-shrink: 0;
+.barberform-page .barber-brand i {
+  color: #ffd700;
+  font-size: 2rem;
 }
 
-.barber-form-input,
-.barber-form-textarea {
-  width: 100%;
-  padding: 0.875rem;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: all 0.2s ease;
-  background-color: #f8fafc;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  margin-bottom: 0.5rem;
-  height: 50px;
-  box-sizing: border-box;
-}
-
-.barber-form-textarea {
-  min-height: 150px;
-  resize: vertical;
-  padding: 1rem;
-  line-height: 1.5;
-  height: auto;
-}
-
-.barber-form-input:focus,
-.barber-form-textarea:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
-  background-color: #fff;
-}
-
-.barber-form-actions {
+.barberform-page .barber-nav-right {
   display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-  width: 100%;
+  align-items: center;
+  gap: 20px;
 }
 
-.barber-form-button {
+.barberform-page .barber-info-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.08);
+  padding: 8px 15px;
+  border-radius: 25px;
+  border: 1px solid rgba(255,215,0,0.3);
+}
+
+.barberform-page .barber-info-box i {
+  color: #ffd700;
+  font-size: 1.1rem;
+}
+
+.barberform-page .barber-info-box span {
+  color: #e8e8e8;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.barberform-page .barber-logout-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 200px;
-  padding: 0.875rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 500;
-  color: white;
-  background-color: #007bff;
-  border: none;
+  gap: 8px;
+  width: auto;
+  min-width: 104px;
+  min-height: 38px;
+  margin: 0;
+  padding: 8px 14px;
+  border: 0;
   border-radius: 8px;
+  background: #b42318;
+  color: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.barberform-page .barber-logout-btn:hover {
+  background: #931c14;
+}
+
+.barberform-page .barber-sidebar {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 280px;
+  height: calc(100vh - 70px);
+  background: linear-gradient(180deg, #1e3a8a 0%, #1a2f6f 100%);
+  border-right: 2px solid rgba(255,215,0,0.15);
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  overflow-y: auto;
+}
+
+.barberform-page .barber-sidebar-header {
+  padding: 25px 20px;
+  text-align: center;
+  border-bottom: 2px solid rgba(255,215,0,0.2);
+}
+
+.barberform-page .barber-sidebar-header h2 {
+  color: white;
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.barberform-page .barber-sidebar-id {
+  color: #ffd700;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.barberform-page .barber-nav-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+.barberform-page .barber-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 25px;
+  text-decoration: none;
+  color: rgba(255,255,255,0.85);
+  margin: 8px 12px;
+  border-radius: 10px;
+  transition: all 0.3s;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.barberform-page .barber-nav-link i {
+  font-size: 1.1rem;
+  width: 24px;
+  text-align: center;
+  color: rgba(255,255,255,0.8);
+}
+
+.barberform-page .barber-nav-link:hover {
+  background: rgba(255,215,0,0.15);
+  color: #ffd700;
+  padding-left: 30px;
+}
+
+.barberform-page .barber-nav-link:hover i {
+  color: #ffd700;
+}
+
+.barberform-page .barber-nav-link.active {
+  background: linear-gradient(90deg, #ffd700 0%, #ffed4e 100%);
+  color: #1e3a8a;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(255,215,0,0.3);
+}
+
+.barberform-page .barber-nav-link.active i {
+  color: #1e3a8a;
+}
+
+.barberform-page .barber-main-content {
+  margin-left: 280px;
+  margin-top: 70px;
+  padding: 40px;
+  width: calc(100% - 280px);
+  background: #f5f7fa;
+  min-height: calc(100vh - 70px);
+}
+
+.barberform-page .barber-form-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.barberform-page .barber-form-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin: 0 0 30px 0;
+  text-align: center;
+}
+
+.barberform-page .barber-form-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border: 1px solid #e8e8e8;
+  overflow: hidden;
+}
+
+.barberform-page .barber-form-image {
+  height: 220px;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.barberform-page .barber-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.barberform-page .barber-form-content {
+  padding: 40px;
+}
+
+.barberform-page .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.barberform-page .form-grid.full {
+  grid-template-columns: 1fr;
+}
+
+.barberform-page .form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.barberform-page .form-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.barberform-page .form-label i {
+  color: #1e3a8a;
+  font-size: 1rem;
+}
+
+.barberform-page .form-input,
+.barberform-page .form-textarea {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all 0.3s;
+  background: #f9fbfd;
+}
+
+.barberform-page .form-input:focus,
+.barberform-page .form-textarea:focus {
+  outline: none;
+  border-color: #1e3a8a;
+  box-shadow: 0 0 0 3px rgba(30,58,138,0.1);
+  background: white;
+}
+
+.barberform-page .form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.barberform-page .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.barberform-page .btn-primary,
+.barberform-page .btn-secondary {
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
 }
 
-.barber-form-button:hover {
-  background-color: #0069d9;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 6px rgba(0, 123, 255, 0.25);
+.barberform-page .btn-primary {
+  background: #1e3a8a;
+  color: white;
 }
 
-.barber-form-button:active {
-  transform: translateY(1px);
-  box-shadow: 0 1px 2px rgba(0, 123, 255, 0.2);
+.barberform-page .btn-primary:hover {
+  background: #16336a;
 }
 
-.barber-form-button:disabled {
-  background-color: #80bdff;
-  cursor: not-allowed;
-  box-shadow: none;
+.barberform-page .btn-secondary {
+  background: #edf2f7;
+  color: #1f2937;
 }
 
-.barber-form-success {
-  margin-top: 1rem;
-  padding: 1rem;
-  background-color: #d4edda;
-  color: #155724;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 0.875rem;
-  width: 100%;
+.barberform-page .btn-secondary:hover {
+  background: #e2e8f0;
 }
 
-.barber-form-error {
-  margin-top: 1rem;
-  padding: 1rem;
-  background-color: #f8d7da;
-  color: #721c24;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 0.875rem;
-  width: 100%;
+.barberform-page .alert {
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
 }
 
-/* Responsive adjustments */
-@media (min-width: 640px) {
-  .barber-form-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-
-  .barber-form {
-    padding: 2rem;
-  }
-
-  .barber-form-container {
-    padding: 2rem;
-  }
+.barberform-page .alert-error {
+  background: #fee2e2;
+  color: #b91c1c;
 }
 
-@media (max-width: 768px) {
-  .barber-form-container {
-    padding: 1rem;
-  }
-
-  .barber-form {
-    padding: 1.25rem;
-  }
-
-  .barber-form-image {
-    height: 160px;
-  }
-
-  .barber-form-grid {
-    gap: 1rem;
-  }
+.barberform-page .alert-success {
+  background: #dcfce7;
+  color: #166534;
 }
 
-@media (max-width: 480px) {
-  .barber-form-title {
-    font-size: 1.5rem;
+@media (max-width: 900px) {
+  .barberform-page .barber-main-content,
+  .barberform-page .barber-form-content {
+    padding: 20px;
   }
 
-  .barber-form-button {
+  .barberform-page .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .barberform-page .barber-sidebar {
+    position: relative;
     width: 100%;
+    height: auto;
   }
 
-  .barber-form-image {
-    height: 140px;
+  .barberform-page .barber-nav-link {
+    margin: 8px 12px;
+  }
+}
+/* UX refresh: scoped barber shop form */
+.barberform-page {
+  background: #f4f7fb;
+  color: #172033;
+}
+
+.barberform-page .barber-top-nav {
+  height: 64px;
+  padding: 0 24px;
+  background: #17324f;
+  border-bottom: 1px solid rgba(200, 155, 60, 0.55);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+}
+
+.barberform-page .barber-brand {
+  font-size: 1.18rem;
+  letter-spacing: 0;
+}
+
+.barberform-page .barber-brand i,
+.barberform-page .barber-info-box i,
+.barberform-page .form-label i {
+  color: #c89b3c;
+}
+
+.barberform-page .barber-info-box {
+  min-height: 38px;
+  border-radius: 999px;
+}
+
+.barberform-page .barber-sidebar {
+  top: 64px;
+  width: 272px;
+  height: calc(100vh - 64px);
+  padding: 18px 14px;
+  background: #17324f;
+}
+
+.barberform-page .barber-nav-link {
+  min-height: 46px;
+  margin: 0 0 6px;
+  padding: 12px 14px;
+  border-radius: 8px;
+}
+
+.barberform-page .barber-nav-link:hover,
+.barberform-page .barber-nav-link.active {
+  background: rgba(200, 155, 60, 0.16);
+  color: #ffffff;
+  box-shadow: inset 3px 0 0 #c89b3c;
+}
+
+.barberform-page .barber-main-content {
+  width: calc(100% - 272px);
+  margin-top: 64px;
+  margin-left: 272px;
+  padding: 32px;
+  background: #f4f7fb;
+}
+
+.barberform-page .barber-form-container {
+  max-width: 980px;
+}
+
+.barberform-page .barber-form-title {
+  color: #172033;
+  text-align: left;
+  letter-spacing: 0;
+}
+
+.barberform-page .barber-form-card {
+  border: 1px solid #d9e1ec;
+  border-radius: 8px;
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+}
+
+.barberform-page .barber-form-image {
+  height: 190px;
+}
+
+.barberform-page .form-grid {
+  gap: 18px;
+}
+
+.barberform-page .form-input,
+.barberform-page .form-textarea {
+  min-height: 46px;
+  border: 1px solid #cfd8e3;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.barberform-page .btn-primary,
+.barberform-page .btn-secondary {
+  min-height: 44px;
+  border-radius: 8px;
+}
+
+.barberform-page .btn-primary {
+  background: #17324f;
+}
+
+@media (max-width: 860px) {
+  .barberform-page .barber-sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
   }
 
-  .barber-form {
-    padding: 1rem;
+  .barberform-page .barber-nav-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+    gap: 6px;
   }
 
-  .barber-form-input,
-  .barber-form-textarea {
-    padding: 0.75rem;
+  .barberform-page .barber-main-content {
+    width: 100%;
+    margin-left: 0;
+    padding: 22px;
+  }
+
+  .barberform-page .form-actions {
+    flex-direction: column;
   }
 }

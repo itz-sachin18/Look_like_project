@@ -1,89 +1,167 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: #f7f9fc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  /* Form Container */
-  .form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-  }
-  
-  /* Form Box */
-  .form-box {
-    background: #ffffff;
-    padding: 30px 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-  }
-  
-  /* Title */
-  .form-box h2 {
-    margin-bottom: 20px;
-    color: #333;
-    font-size: 1.8rem;
-  }
-  
-  /* Input Fields */
-  .form-input {
-    width: 100%;
-    padding: 10px 12px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-    box-sizing: border-box;
-    outline: none;
-    transition: border-color 0.3s;
-  }
-  
-  .form-input:focus {
-    border-color: #007bff;
-  }
-  
-  /* Submit Button */
-  .form-button {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #ffffff;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .form-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Toggle Text */
-  .toggle-text {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #555;
-  }
-  
-  .link {
-    color: #007bff;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  
-  .link:hover {
-    text-decoration: underline;
-  }
-  
+.login-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+.form-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-box {
+  width: 100%;
+  max-width: 350px;
+  background: #fff;
+  padding: 35px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+/* Title */
+.form-box h2 {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Inputs */
+.form-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: #007bff;
+}
+
+/* Button */
+.form-button {
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-button:hover {
+  background: #0056b3;
+}
+
+/* Message */
+.message {
+  margin-top: 10px;
+  color: red;
+}
+
+/* Bottom text */
+.toggle-text {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.link {
+  color: #007bff;
+  text-decoration: none;
+}
+/* UX refresh: barber signup scoped only to .signup-page.form-container */
+.signup-page.form-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #f4f7fb 0%, #edf2f7 100%);
+  color: #172033;
+}
+
+.signup-page .form-box {
+  width: min(100%, 430px);
+  padding: 36px;
+  border: 1px solid #d9e1ec;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+  text-align: left;
+}
+
+.signup-page .form-box h2 {
+  margin: 0 0 22px;
+  color: #172033;
+  font-size: 1.85rem;
+  letter-spacing: 0;
+}
+
+.signup-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.signup-page .form-input {
+  min-height: 46px;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cfd8e3;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.signup-page .form-input:focus {
+  border-color: #c89b3c;
+  box-shadow: 0 0 0 3px rgba(200, 155, 60, 0.18);
+  outline: none;
+}
+
+.signup-page .form-button {
+  min-height: 46px;
+  border: 0;
+  border-radius: 8px;
+  background: #17324f;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.signup-page .form-button:hover {
+  background: #c89b3c;
+  color: #172033;
+}
+
+.signup-page .success-message,
+.signup-page .error-message {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.signup-page .success-message {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.signup-page .error-message {
+  background: #fee2e2;
+  color: #b42318;
+}
+
+.signup-page .toggle-text {
+  margin-top: 18px;
+  color: #667085;
+}
+
+.signup-page .link {
+  color: #9a6a18;
+  font-weight: 700;
+}

@@ -1,16 +1,15 @@
-body {
-  margin: 0;
-  padding: 0;
+/* Barberhome component scoped styles */
+.barberhome-page {
+  min-height: 100vh;
+  background-color: #eef3ff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa;
 }
 
-/* New top navigation */
-.app-container {
+.barberhome-page .app-container {
   min-height: 100vh;
 }
 
-.top-navigation {
+.barberhome-page .top-navigation {
   position: fixed;
   top: 0;
   left: 0;
@@ -26,7 +25,7 @@ body {
   z-index: 1000;
 }
 
-.brand {
+.barberhome-page .brand {
   display: flex;
   align-items: center;
   font-size: 1.5rem;
@@ -34,30 +33,30 @@ body {
   color: #ffffff;
 }
 
-.brand i {
+.barberhome-page .brand i {
   margin-right: 10px;
   color: #ffd700;
 }
 
-.top-nav-right {
+.barberhome-page .top-nav-right {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.admin-info {
+.barberhome-page .admin-info {
   display: flex;
   align-items: center;
   gap: 8px;
   color: #e0e0e0;
 }
 
-.admin-info i {
+.barberhome-page .admin-info i {
   font-size: 1.2rem;
   color: #ffd700;
 }
 
-.logout-btn {
+.barberhome-page .logout-btn {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -70,17 +69,16 @@ body {
   transition: background-color 0.3s;
 }
 
-.logout-btn:hover {
+.barberhome-page .logout-btn:hover {
   background-color: #a01830;
 }
 
-/* Adjust existing dashboard container */
-.dashboard-container {
+.barberhome-page .dashboard-container {
   display: flex;
-  padding-top: 2px;
+  padding-top: 60px;
 }
 
-.sidebar {
+.barberhome-page .sidebar {
   top: 60px;
   width: 280px;
   background: #1e3a8a;
@@ -89,32 +87,31 @@ body {
   position: fixed;
 }
 
-.logo-section {
+.barberhome-page .logo-section {
   padding: 20px;
   text-align: center;
-  border-bottom: 1px solid rgba(255,215,0,0.1);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.1);
 }
 
-.logo-section h2 {
+.barberhome-page .logo-section h2 {
   color: #ffffff;
-  margin: 0;
-  margin-bottom: 8px;
+  margin: 0 0 8px;
 }
 
-.admin-id {
+.barberhome-page .admin-id {
   color: #ffd700;
   margin: 0;
   font-size: 0.9rem;
 }
 
-.nav-menu {
+.barberhome-page .nav-menu {
   padding: 0;
   display: flex;
   flex-direction: column;
   margin-top: 20px;
 }
 
-.nav-item {
+.barberhome-page .nav-item {
   display: flex;
   align-items: center;
   padding: 15px 30px;
@@ -126,7 +123,7 @@ body {
   font-size: 0.95rem;
 }
 
-.nav-item i {
+.barberhome-page .nav-item i {
   font-size: 18px;
   margin-right: 12px;
   width: 25px;
@@ -134,76 +131,62 @@ body {
   color: rgba(255, 255, 255, 0.8);
 }
 
-.nav-item span {
+.barberhome-page .nav-item span {
   font-weight: 500;
   letter-spacing: 0.3px;
 }
 
-.nav-item:hover {
+.barberhome-page .nav-item:hover {
   background: rgba(255, 255, 255, 0.1);
   color: #ffd700;
 }
 
-.nav-item.active {
+.barberhome-page .nav-item.active {
   background: #ffd700;
   color: #1e3a8a;
   font-weight: 600;
 }
 
-.nav-item.active i {
+.barberhome-page .nav-item.active i {
   color: #1e3a8a;
 }
 
-.logout-nav {
-  margin-top: auto;
-  margin-bottom: 20px;
-  cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.logout-nav:hover {
-  background: rgba(196, 30, 58, 0.1);
-  color: #ff4d4d;
-  border-color: #ff4d4d;
-}
-
-.main-content {
+.barberhome-page .main-content {
   margin-left: 280px;
   padding: 20px;
   width: calc(100% - 280px);
 }
 
-.page-header {
+.barberhome-page .page-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
 }
 
-.page-header h1 {
+.barberhome-page .page-header h1 {
   color: #192f59;
 }
 
-.breadcrumb {
+.barberhome-page .breadcrumb {
   display: flex;
   align-items: center;
   gap: 8px;
   color: #666666;
 }
 
-.breadcrumb i {
+.barberhome-page .breadcrumb i {
   color: #ffd700;
 }
 
-/* Update existing components */
-.stats-grid {
+.barberhome-page .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 24px;
   margin-bottom: 24px;
 }
 
-.stats-card {
+.barberhome-page .stats-card {
   background: linear-gradient(145deg, #192f59 0%, #234175 100%);
   color: white;
   padding: 24px;
@@ -213,46 +196,608 @@ body {
   transition: transform 0.3s;
 }
 
-.stats-card:hover {
+.barberhome-page .stats-card:hover {
   transform: translateY(-5px);
 }
 
-.stats-number {
+.barberhome-page .stats-number {
   color: #ffd700;
   text-shadow: 0 0 10px rgba(255,215,0,0.3);
 }
 
-.chart-container {
+.barberhome-page .chart-container {
   background: #ffffff;
   border: 1px solid #e0e0e0;
 }
 
-/* Responsive adjustments */
 @media screen and (max-width: 768px) {
-  .top-navigation {
+  .barberhome-page .top-navigation {
     padding: 0 10px;
   }
 
-  .brand span {
+  .barberhome-page .brand span {
     display: none;
   }
 
-  .admin-info span {
+  .barberhome-page .admin-info span {
     display: none;
   }
 
-  .sidebar {
+  .barberhome-page .sidebar {
     width: 100%;
     position: relative;
     min-height: auto;
   }
 
-  .main-content {
+  .barberhome-page .main-content {
     margin-left: 0;
+    width: 100%;
+   
+  }
+
+  .barberhome-page .dashboard-container {
+    flex-direction: column;
+  }
+}
+/* UX refresh: scoped admin dashboard polish */
+.barberhome-page {
+  background: #f4f7fb;
+  color: #172033;
+}
+
+.barberhome-page .top-navigation {
+  height: 64px;
+  padding: 0 24px;
+  background: #17324f;
+  border-bottom: 1px solid rgba(200, 155, 60, 0.55);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+}
+
+.barberhome-page .brand {
+  gap: 10px;
+  font-size: 1.18rem;
+  letter-spacing: 0;
+}
+
+.barberhome-page .brand i,
+.barberhome-page .admin-info i,
+.barberhome-page .breadcrumb i {
+  color: #c89b3c;
+}
+
+.barberhome-page .admin-info {
+  min-height: 38px;
+  padding: 7px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  color: #eef4fb;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.barberhome-page .logout-btn {
+  min-height: 38px;
+  border: 0;
+  border-radius: 8px;
+  background: #b42318;
+  font-weight: 700;
+}
+
+.barberhome-page .dashboard-container {
+  padding-top: 64px;
+}
+
+.barberhome-page .sidebar {
+  top: 64px;
+  width: 272px;
+  min-height: calc(100vh - 64px);
+  padding: 18px 14px;
+  background: #17324f;
+}
+
+.barberhome-page .logo-section {
+  padding: 18px 14px 20px;
+}
+
+.barberhome-page .logo-section h2 {
+  font-size: 1.08rem;
+  letter-spacing: 0;
+}
+
+.barberhome-page .admin-id {
+  color: #d6b46b;
+}
+
+.barberhome-page .nav-menu {
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.barberhome-page .nav-item {
+  min-height: 46px;
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.barberhome-page .nav-item:hover,
+.barberhome-page .nav-item.active {
+  background: rgba(200, 155, 60, 0.16);
+  color: #ffffff;
+}
+
+.barberhome-page .nav-item.active {
+  box-shadow: inset 3px 0 0 #c89b3c;
+}
+
+.barberhome-page .main-content {
+  width: calc(100% - 272px);
+  margin-left: 272px;
+  padding: 32px;
+}
+
+.barberhome-page .page-header {
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.barberhome-page .page-header h1 {
+  margin: 0;
+  color: #172033;
+  font-size: clamp(1.6rem, 2vw, 2.15rem);
+  letter-spacing: 0;
+}
+
+.barberhome-page .breadcrumb {
+  min-height: 36px;
+  padding: 7px 12px;
+  border: 1px solid #d9e1ec;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #667085;
+}
+
+.barberhome-page .stats-grid {
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+}
+
+.barberhome-page .stats-card {
+  min-height: 136px;
+  border: 1px solid #d9e1ec;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #172033;
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+}
+
+.barberhome-page .stats-card h3 {
+  margin: 0 0 18px;
+  color: #667085;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.barberhome-page .stats-number {
+  margin: 0;
+  color: #17324f;
+  font-size: 2.1rem;
+  text-shadow: none;
+}
+
+.barberhome-page .chart-container {
+  min-height: 380px;
+  padding: 24px;
+  border: 1px solid #d9e1ec;
+  border-radius: 8px;
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+}
+
+@media (max-width: 860px) {
+  .barberhome-page .top-navigation {
+    padding: 0 14px;
+  }
+
+  .barberhome-page .dashboard-container {
+    flex-direction: column;
+  }
+
+  .barberhome-page .sidebar {
+    position: static;
+    width: 100%;
+    min-height: auto;
+  }
+
+  .barberhome-page .nav-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+  }
+
+  .barberhome-page .main-content {
+    width: 100%;
+    margin-left: 0;
+    padding: 22px;
+  }
+}
+
+/* Final Barberhome UI pass: clean aligned dashboard */
+.barberhome-page {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: #f5f7fb;
+  color: #172033;
+}
+
+.barberhome-page *,
+.barberhome-page *::before,
+.barberhome-page *::after {
+  box-sizing: border-box;
+}
+
+.barberhome-page button {
+  width: auto;
+  margin-top: 0;
+}
+
+.barberhome-page .top-navigation {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 68px;
+  padding: 0 28px;
+  background: #ffffff;
+  border-bottom: 1px solid #d9e1ec;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+  z-index: 1000;
+}
+
+.barberhome-page .brand {
+  gap: 12px;
+  color: #17324f;
+  font-size: 1.12rem;
+  font-weight: 900;
+}
+
+.barberhome-page .brand i {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  margin-right: 0;
+  border-radius: 8px;
+  background: #17324f;
+  color: #c89b3c;
+}
+
+.barberhome-page .top-nav-right {
+  gap: 12px;
+  min-width: 0;
+}
+
+.barberhome-page .admin-info {
+  max-width: 320px;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid #d9e1ec;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #334155;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.barberhome-page .admin-info i {
+  color: #c89b3c;
+}
+
+.barberhome-page .logout-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 104px;
+  min-height: 40px;
+  padding: 9px 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #b42318;
+  color: #ffffff;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: none;
+}
+
+.barberhome-page .logout-btn:hover {
+  background: #931c14;
+}
+
+.barberhome-page .dashboard-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 68px;
+  background: #f5f7fb;
+}
+
+.barberhome-page .sidebar {
+  position: fixed;
+  top: 68px;
+  left: 0;
+  bottom: 0;
+  width: 264px;
+  min-height: auto;
+  padding: 20px 14px;
+  overflow-y: auto;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  background: #17324f;
+}
+
+.barberhome-page .logo-section {
+  padding: 8px 10px 20px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.barberhome-page .logo-section h2 {
+  margin: 0 0 6px;
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 850;
+}
+
+.barberhome-page .admin-id {
+  color: #d6b46b;
+  font-size: 0.86rem;
+  overflow-wrap: anywhere;
+}
+
+.barberhome-page .nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 20px;
+  padding: 0;
+}
+
+.barberhome-page .nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 46px;
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.barberhome-page .nav-item i {
+  width: 22px;
+  margin-right: 0;
+  color: rgba(255, 255, 255, 0.72);
+  text-align: center;
+}
+
+.barberhome-page .nav-item:hover,
+.barberhome-page .nav-item.active {
+  background: rgba(200, 155, 60, 0.16);
+  color: #ffffff;
+}
+
+.barberhome-page .nav-item.active {
+  box-shadow: inset 3px 0 0 #c89b3c;
+}
+
+.barberhome-page .nav-item.active i {
+  color: #c89b3c;
+}
+
+.barberhome-page .main-content {
+  width: calc(100% - 264px);
+  min-width: 0;
+  min-height: calc(100vh - 68px);
+  margin-left: 264px;
+  padding: 30px;
+  background: #f5f7fb;
+}
+
+.barberhome-page .page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  width: 100%;
+  margin: 0 0 22px;
+}
+
+.barberhome-page .page-header h1 {
+  margin: 0;
+  color: #111827;
+  font-size: clamp(1.55rem, 2.2vw, 2.2rem);
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.barberhome-page .breadcrumb {
+  flex: 0 0 auto;
+  min-height: 38px;
+  padding: 8px 12px;
+  border: 1px solid #d9e1ec;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #667085;
+  font-size: 0.9rem;
+}
+
+.barberhome-page .breadcrumb i {
+  color: #c89b3c;
+}
+
+.barberhome-page .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+  margin: 0 0 20px;
+}
+
+.barberhome-page .stats-card {
+  display: flex;
+  min-width: 0;
+  min-height: 128px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  border: 1px solid #d9e1ec;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #172033;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+  transform: none;
+}
+
+.barberhome-page .stats-card:hover {
+  border-color: rgba(200, 155, 60, 0.55);
+  transform: translateY(-2px);
+}
+
+.barberhome-page .stats-card h3 {
+  margin: 0;
+  color: #667085;
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.barberhome-page .stats-number {
+  margin: 12px 0 0;
+  color: #17324f;
+  font-size: clamp(1.75rem, 2.8vw, 2.35rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.barberhome-page .chart-container {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  margin-left: 0;
+  margin-right: 0;
+  min-height: 420px;
+  padding: 24px;
+  border: 1px solid #d9e1ec;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+}
+
+.barberhome-page .chart-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: none;
+}
+
+.barberhome-page .chart-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  align-self: stretch;
+  height: clamp(340px, 42vh, 460px);
+  min-height: 340px;
+  max-height: 460px;
+}
+
+.barberhome-page .chart-container > canvas {
+  flex: 1 1 auto;
+}
+
+@media (max-width: 1180px) {
+  .barberhome-page .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .barberhome-page .top-navigation {
+    height: auto;
+    min-height: 64px;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 16px;
+  }
+
+  .barberhome-page .dashboard-container {
+    display: block;
+    padding-top: 88px;
+  }
+
+  .barberhome-page .sidebar {
+    position: static;
+    width: 100%;
+    padding: 16px;
+  }
+
+  .barberhome-page .nav-menu {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .barberhome-page .main-content {
+    width: 100%;
+    min-height: auto;
+    margin-left: 0;
+    padding: 22px;
+  }
+}
+
+@media (max-width: 620px) {
+  .barberhome-page .top-navigation {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .barberhome-page .top-nav-right {
+    width: 100%;
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .barberhome-page .admin-info,
+  .barberhome-page .logout-btn {
     width: 100%;
   }
 
-  .dashboard-container {
+  .barberhome-page .dashboard-container {
+    padding-top: 150px;
+  }
+
+  .barberhome-page .page-header {
     flex-direction: column;
+  }
+
+  .barberhome-page .breadcrumb {
+    width: 100%;
+  }
+
+  .barberhome-page .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .barberhome-page .main-content,
+  .barberhome-page .chart-container {
+    padding: 16px;
+  }
+
+  .barberhome-page .chart-container {
+    height: 320px;
+    min-height: 320px;
+    max-height: 320px;
   }
 }

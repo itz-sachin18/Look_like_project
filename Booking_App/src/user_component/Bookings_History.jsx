@@ -184,7 +184,13 @@ const BookingsHistory = () => {
           <div className="bh-topbar-left">
             {/* <h1 className="bh-page-title">Your Bookings</h1> */}
           </div>
-          <div className="bh-topbar-right">{userId && <div className="bh-user-id">User ID: {userId}</div>}</div>
+          <div className="bh-topbar-right">
+            {userId && <div className="bh-user-id">User ID: {userId}</div>}
+            <button className="bh-logout-btn" onClick={handleLogout}>
+              <LogOut className="bh-nav-icon" />
+              Logout
+            </button>
+          </div>
         </header>
 
         <div className="bh-content">

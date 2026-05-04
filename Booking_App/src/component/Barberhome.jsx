@@ -81,6 +81,7 @@ const Barberhome = () => {
 
   const chartOptions = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: 'top',
@@ -119,7 +120,7 @@ const Barberhome = () => {
   };
 
   return (
-    <div className="app-container">
+    <div className="barberhome-page app-container">
       <div className="top-navigation">
         <div className="brand">
           <i className="fas fa-cut"></i>

@@ -121,3 +121,176 @@ h2 {
 .book-button:hover {
   background-color: #0056b3;
 }
+/* UX refresh: token list scoped to .token-page */
+.token-page {
+  min-height: 100vh;
+  padding: 32px;
+  background: #f4f7fb;
+  color: #172033;
+}
+
+.token-page.token-container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.token-page h2,
+.token-page h3,
+.token-page h4 {
+  color: #172033;
+  letter-spacing: 0;
+}
+
+.token-page > h2,
+.token-page > h3 {
+  margin: 0 0 12px;
+}
+
+.token-page .barber-selection,
+.token-page .token-list {
+  margin-top: 22px;
+  padding: 22px;
+  border: 1px solid #d9e1ec;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+}
+
+.token-page .barber-scroll {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.token-page .barber-radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #d9e1ec;
+  border-radius: 8px;
+  background: #f8fafc;
+  cursor: pointer;
+}
+
+.token-page .token-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+}
+
+.token-page .token-item {
+  display: grid;
+  gap: 8px;
+  min-height: 130px;
+  padding: 16px;
+  border: 1px solid #d9e1ec;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.token-page .token-number {
+  color: #17324f;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.token-page .time-slot {
+  color: #667085;
+}
+
+.token-page .lunch-break {
+  border-color: #f7d89a;
+  background: #fff8eb;
+}
+
+.token-page .book-button {
+  min-height: 40px;
+  border: 0;
+  border-radius: 8px;
+  background: #17324f;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.token-page .token-page-actions {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.token-page .token-logout-btn {
+  width: auto;
+  min-width: 104px;
+  min-height: 40px;
+  margin: 0;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #b42318;
+  color: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.token-page .token-logout-btn:hover {
+  background: #931c14;
+}
+
+@media (max-width: 520px) {
+  .token-page {
+    padding: 18px;
+  }
+}
+
+/* Final responsive hardening for token page */
+.token-page {
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.token-page.token-container {
+  width: min(100%, 980px);
+  max-width: 100%;
+}
+
+.token-page .barber-selection,
+.token-page .barber-scroll,
+.token-page .token-list,
+.token-page .token-item {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.token-page .token-number,
+.token-page .time-slot,
+.token-page h2,
+.token-page h3,
+.token-page h4 {
+  overflow-wrap: anywhere;
+}
+
+.token-page .lunch-break,
+.token-page .token-item.lunch-break {
+  width: 100%;
+}
+
+@media (max-width: 560px) {
+  .token-page {
+    padding: 14px;
+  }
+
+  .token-page .barber-scroll,
+  .token-page .token-list {
+    grid-template-columns: 1fr;
+  }
+
+  .token-page .token-logout-btn {
+    width: 100%;
+  }
+}

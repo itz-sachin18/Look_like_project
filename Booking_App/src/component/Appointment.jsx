@@ -29,6 +29,23 @@ const Appointment = () => {
     return () => clearInterval(timer)
   }, [])
 
+  // Auto-update expired bookings every minute
+  useEffect(() => {
+    const autoUpdateInterval = setInterval(async () => {
+      try {
+        console.log('[APPOINTMENT] Running auto-update check...');
+        await axios.put(`${BASE_URL}/api/auto-update-expired`, {}, {
+          withCredentials: true,
+        });
+        console.log('[APPOINTMENT] Auto-update completed');
+      } catch (err) {
+        console.error('[APPOINTMENT] Auto-update error:', err);
+      }
+    }, 60000); // Check every minute
+
+    return () => clearInterval(autoUpdateInterval);
+  }, [])
+
   useEffect(() => {
     if (!adminId) {
       navigate("/barberlogin")
@@ -38,13 +55,13 @@ const Appointment = () => {
     const fetchData = async () => {
       try {
         setLoading(true)
-        const shopResponse = await axios.get(`${BASE_URL}/api/shops/admin/${adminId}`, {
+        const shopResponse = await axios.get(`${BASE_URL}/api/timings/shops/admin/${adminId}`, {
           withCredentials: true,
         })
 
         if (shopResponse.data && shopResponse.data.uniqueId) {
           const barbersResponse = await axios.get(
-            `${BASE_URL}/api/appointments/${shopResponse.data.uniqueId}`,
+            `${BASE_URL}/api/timings/appointments/${shopResponse.data.uniqueId}`,
             { withCredentials: true },
           )
 
@@ -76,7 +93,20 @@ const Appointment = () => {
       try {
         setAppointmentsLoading(true)
         setAppointmentsError(null)
-        const response = await axios.get(`${BASE_URL}/api/api/bookings/barber/${selectedBarberId}`, {
+
+        // First, auto-update expired bookings
+        console.log('[APPOINTMENT] Auto-updating expired bookings...');
+        try {
+          await axios.put(`${BASE_URL}/api/auto-update-expired`, {}, {
+            withCredentials: true,
+          });
+          console.log('[APPOINTMENT] Expired bookings updated');
+        } catch (updateErr) {
+          console.error('[APPOINTMENT] Error auto-updating:', updateErr);
+        }
+
+        // Then fetch appointments
+        const response = await axios.get(`${BASE_URL}/api/bookings/barber/${selectedBarberId}`, {
           withCredentials: true,
         })
 
@@ -134,6 +164,18 @@ const Appointment = () => {
     })
   }
 
+  const handleLogout = async () => {
+    try {
+      await axios.post(`${BASE_URL}/api/logout`, {}, { withCredentials: true })
+    } catch (error) {
+      console.error("Logout error:", error)
+    } finally {
+      localStorage.removeItem("token")
+      localStorage.removeItem("adminId")
+      navigate("/barberlogin")
+    }
+  }
+
   const getStatusIcon = (status) => {
     switch (status.toLowerCase()) {
       case "completed":
@@ -146,7 +188,7 @@ const Appointment = () => {
   }
 
   return (
-    <div className="appt-layout">
+    <div className="appointment-page appt-layout">
       {/* Top Navigation */}
       <div className="appt-topbar">
         <div className="appt-brand">
@@ -158,6 +200,10 @@ const Appointment = () => {
             <i className="fas fa-user-circle"></i>
             <span>Admin ID: {adminId}</span>
           </div>
+          <button className="appt-logout-btn" onClick={handleLogout}>
+            <i className="fas fa-sign-out-alt"></i>
+            Logout
+          </button>
         </div>
       </div>
 
@@ -259,6 +305,26 @@ const Appointment = () => {
                   <h2 className="appt-section-title">
                     Appointments for <span className="appt-selected-barber">{selectedBarber}</span>
                   </h2>
+                  <button
+                    onClick={() => {
+                      // Trigger appointment refresh
+                      setSelectedBarberId(selectedBarberId);
+                    }}
+                    style={{
+                      marginLeft: "auto",
+                      padding: "6px 12px",
+                      background: "#1e3a8a",
+                      color: "white",
+                      border: "none",
+                      borderRadius: "4px",
+                      cursor: "pointer",
+                      fontSize: "12px",
+                      fontWeight: 500,
+                    }}
+                    title="Refresh appointments list"
+                  >
+                    ↻ Refresh
+                  </button>
                 </div>
 
                 <div className="appt-section-content">

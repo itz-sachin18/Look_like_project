@@ -38,7 +38,7 @@ const Profile = () => {
   if (!profileData) return <div className="profile-error">No profile data available.</div>;
 
   return (
-    <div className="app-container">
+    <div className="profile-page app-container">
       {/* Top Navigation Bar */}
       <div className="top-navigation">
         <div className="brand">

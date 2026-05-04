@@ -1,10 +1,14 @@
-.app-container {
+.timer-page {
   min-height: 100vh;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
-    "Helvetica Neue", sans-serif;
+  background: #eef6ff;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.top-navigation {
+.timer-page .app-container {
+  min-height: 100vh;
+}
+
+.timer-page .top-navigation {
   position: fixed;
   top: 0;
   left: 0;
@@ -19,44 +23,43 @@
   z-index: 1000;
 }
 
-.dashboard-container {
+.timer-page .dashboard-container {
   display: flex;
   padding-top: 60px;
 }
 
-.sidebar {
+.timer-page .sidebar {
   width: 280px;
   background: #1e3a8a;
   position: fixed;
   height: calc(100vh - 60px);
 }
 
-.logo-section {
+.timer-page .logo-section {
   padding: 20px;
   text-align: center;
   border-bottom: 1px solid rgba(255, 215, 0, 0.1);
 }
 
-.logo-section h2 {
+.timer-page .logo-section h2 {
   color: #ffffff;
-  margin: 0;
-  margin-bottom: 8px;
+  margin: 0 0 8px;
 }
 
-.admin-id {
+.timer-page .admin-id {
   color: #ffd700;
   margin: 0;
   font-size: 0.9rem;
 }
 
-.nav-menu {
+.timer-page .nav-menu {
   padding: 0;
   display: flex;
   flex-direction: column;
   margin-top: 20px;
 }
 
-.nav-item {
+.timer-page .nav-item {
   display: flex;
   align-items: center;
   padding: 15px 30px;
@@ -68,7 +71,7 @@
   font-size: 0.95rem;
 }
 
-.nav-item i {
+.timer-page .nav-item i {
   font-size: 18px;
   margin-right: 12px;
   width: 25px;
@@ -76,25 +79,24 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-.nav-item:hover {
+.timer-page .nav-item:hover {
   background: rgba(255, 255, 255, 0.1);
   color: #ffd700;
 }
 
-.nav-item.active {
+.timer-page .nav-item.active {
   background: #ffd700;
   color: #1e3a8a;
   font-weight: 600;
 }
 
-.main-content {
+.timer-page .main-content {
   margin-left: 280px;
   padding: 20px;
   width: calc(100% - 280px);
 }
 
-/* New Timer Styles */
-.timer-container {
+.timer-page .timer-container {
   max-width: 1000px;
   margin: 0 auto;
   background: white;
@@ -103,7 +105,7 @@
   overflow: hidden;
 }
 
-.timer-header {
+.timer-page .timer-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -112,7 +114,7 @@
   border-bottom: 1px solid #eaeaea;
 }
 
-.timer-title {
+.timer-page .timer-title {
   display: flex;
   align-items: center;
   font-size: 1.5rem;
@@ -121,12 +123,12 @@
   font-weight: 600;
 }
 
-.timer-title-icon {
+.timer-page .timer-title-icon {
   margin-right: 12px;
   color: #1e3a8a;
 }
 
-.timer-shop-id {
+.timer-page .timer-shop-id {
   font-size: 0.85rem;
   color: #666;
   background-color: #e9ecef;
@@ -135,7 +137,7 @@
   font-weight: 500;
 }
 
-.timer-description {
+.timer-page .timer-description {
   padding: 15px 30px;
   color: #666;
   font-size: 0.95rem;
@@ -143,11 +145,11 @@
   background-color: #f8f9fa;
 }
 
-.timer-form {
+.timer-page .timer-form {
   padding: 30px;
 }
 
-.timer-barber-card {
+.timer-page .timer-barber-card {
   background: white;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -156,7 +158,7 @@
   overflow: hidden;
 }
 
-.timer-barber-header {
+.timer-page .timer-barber-header {
   display: flex;
   align-items: center;
   padding: 15px 20px;
@@ -164,26 +166,26 @@
   border-bottom: 1px solid #eaeaea;
 }
 
-.timer-barber-icon {
+.timer-page .timer-barber-icon {
   color: #1e3a8a;
   margin-right: 10px;
 }
 
-.timer-barber-name {
+.timer-page .timer-barber-name {
   margin: 0;
   font-size: 1.2rem;
   color: #333;
   font-weight: 600;
 }
 
-.timer-styles-grid {
+.timer-page .timer-styles-grid {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: 1fr;
   gap: 15px;
   padding: 20px;
 }
 
-.timer-style-item {
+.timer-page .timer-style-item {
   background-color: #f8f9fa;
   border-radius: 8px;
   padding: 15px;
@@ -191,38 +193,38 @@
   transition: all 0.2s ease;
 }
 
-.timer-style-item:hover {
+.timer-page .timer-style-item:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transform: translateY(-2px);
 }
 
-.timer-style-header {
+.timer-page .timer-style-header {
   display: flex;
   align-items: center;
   margin-bottom: 12px;
 }
 
-.timer-style-icon {
+.timer-page .timer-style-icon {
   color: #1e3a8a;
   margin-right: 8px;
   width: 18px;
   height: 18px;
 }
 
-.timer-style-name {
+.timer-page .timer-style-name {
   margin: 0;
   font-size: 1rem;
   color: #333;
   font-weight: 500;
 }
 
-.timer-input-container {
+.timer-page .timer-input-container {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.timer-time-input {
+.timer-page .timer-time-input {
   flex: 1;
   padding: 10px 12px;
   border: 1px solid #ddd;
@@ -232,13 +234,13 @@
   background-color: white;
 }
 
-.timer-time-input:focus {
+.timer-page .timer-time-input:focus {
   outline: none;
   border-color: #1e3a8a;
   box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
 }
 
-.timer-unit-select {
+.timer-page .timer-unit-select {
   padding: 10px 12px;
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -248,19 +250,19 @@
   transition: all 0.2s ease;
 }
 
-.timer-unit-select:focus {
+.timer-page .timer-unit-select:focus {
   outline: none;
   border-color: #1e3a8a;
   box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
 }
 
-.timer-actions {
+.timer-page .timer-actions {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
-.timer-submit-button {
+.timer-page .timer-submit-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -276,27 +278,26 @@
   min-width: 220px;
 }
 
-.timer-submit-button:hover {
+.timer-page .timer-submit-button:hover {
   background-color: #1e40af;
   transform: translateY(-1px);
 }
 
-.timer-submit-button:active {
+.timer-page .timer-submit-button:active {
   transform: translateY(1px);
 }
 
-.timer-submit-button:disabled {
+.timer-page .timer-submit-button:disabled {
   background-color: #94a3b8;
   cursor: not-allowed;
   transform: none;
 }
 
-.timer-button-icon {
+.timer-page .timer-button-icon {
   margin-left: 8px;
 }
 
-/* Error Styles */
-.timer-error-container {
+.timer-page .timer-error-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -304,7 +305,7 @@
   padding: 20px;
 }
 
-.timer-error-card {
+.timer-page .timer-error-card {
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -314,112 +315,315 @@
   width: 100%;
 }
 
-.timer-error-icon {
+.timer-page .timer-error-icon {
   color: #ef4444;
   margin-bottom: 15px;
 }
 
-.timer-error-title {
+.timer-page .timer-error-title {
   color: #ef4444;
   margin-bottom: 15px;
   font-size: 1.5rem;
 }
 
-.timer-error-message {
+.timer-page .timer-error-message {
   color: #333;
   margin-bottom: 20px;
   font-size: 1rem;
 }
 
-.timer-error-redirect {
+.timer-page .timer-error-redirect {
   color: #666;
   font-size: 0.9rem;
   font-style: italic;
 }
 
-/* Responsive Design */
+@media screen and (max-width: 900px) {
+  .timer-page .main-content,
+  .timer-page .timer-form,
+  .timer-page .timer-header,
+  .timer-page .timer-description {
+    padding: 20px;
+  }
+
+  .timer-page .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .timer-page .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+}
 @media screen and (min-width: 640px) {
-  .timer-styles-grid {
+  .timer-page .timer-styles-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .timer-styles-grid {
+  .timer-page .timer-styles-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media screen and (max-width: 768px) {
-  .sidebar {
+  .timer-page .sidebar {
     display: none;
   }
 
-  .main-content {
+  .timer-page .main-content {
     margin-left: 0;
     width: 100%;
     padding: 15px;
   }
 
-  .timer-container {
+  .timer-page .timer-container {
     margin: 0;
   }
 
-  .timer-header {
+  .timer-page .timer-header {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .timer-shop-id {
+  .timer-page .timer-shop-id {
     margin-top: 10px;
   }
 
-  .timer-form {
+  .timer-page .timer-form {
     padding: 20px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .top-navigation {
+  .timer-page .top-navigation {
     padding: 0 10px;
   }
 
-  .brand span,
-  .admin-info span {
+  .timer-page .brand span,
+  .timer-page .admin-info span {
     display: none;
   }
 
-  .timer-header {
+  .timer-page .timer-header {
     padding: 15px 20px;
   }
 
-  .timer-description {
+  .timer-page .timer-description {
     padding: 12px 20px;
   }
 
-  .timer-form {
+  .timer-page .timer-form {
     padding: 15px;
   }
 
-  .timer-styles-grid {
+  .timer-page .timer-styles-grid {
     gap: 10px;
     padding: 15px;
   }
 
-  .timer-style-item {
+  .timer-page .timer-style-item {
     padding: 12px;
   }
 
-  .timer-input-container {
+  .timer-page .timer-input-container {
     flex-direction: column;
     align-items: stretch;
   }
 
-  .timer-unit-select {
+  .timer-page .timer-unit-select {
     width: 100%;
   }
 
-  .timer-submit-button {
+  .timer-page .timer-submit-button {
     width: 100%;
+  }
+}
+/* UX refresh: scoped timer setup page */
+.timer-page,
+.timer-page.app-container {
+  min-height: 100vh;
+  background: #f4f7fb;
+  color: #172033;
+}
+
+.timer-page .top-navigation {
+  height: 64px;
+  padding: 0 24px;
+  background: #17324f;
+  border-bottom: 1px solid rgba(200, 155, 60, 0.55);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+}
+
+.timer-page .brand,
+.timer-page .top-nav-right,
+.timer-page .admin-info {
+  display: flex;
+  align-items: center;
+}
+
+.timer-page .brand {
+  gap: 10px;
+  color: #ffffff;
+  font-size: 1.18rem;
+  font-weight: 800;
+}
+
+.timer-page .brand i,
+.timer-page .admin-info i,
+.timer-page .timer-title-icon,
+.timer-page .timer-barber-icon,
+.timer-page .timer-style-icon {
+  color: #c89b3c;
+}
+
+.timer-page .admin-info {
+  gap: 8px;
+  min-height: 38px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #eef4fb;
+}
+
+.timer-page .logout-btn,
+.app-container .logout-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: auto;
+  min-width: 104px;
+  min-height: 38px;
+  margin: 0;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #b42318;
+  color: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.timer-page .logout-btn:hover,
+.app-container .logout-btn:hover {
+  background: #931c14;
+}
+
+.timer-page .dashboard-container {
+  padding-top: 64px;
+}
+
+.timer-page .sidebar {
+  top: 64px;
+  width: 272px;
+  min-height: calc(100vh - 64px);
+  padding: 18px 14px;
+  background: #17324f;
+}
+
+.timer-page .nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.timer-page .nav-item {
+  min-height: 46px;
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+}
+
+.timer-page .nav-item:hover,
+.timer-page .nav-item.active {
+  background: rgba(200, 155, 60, 0.16);
+  color: #ffffff;
+  box-shadow: inset 3px 0 0 #c89b3c;
+}
+
+.timer-page .main-content {
+  width: calc(100% - 272px);
+  margin-left: 272px;
+  padding: 32px;
+}
+
+.timer-page .timer-container,
+.timer-error-card {
+  border: 1px solid #d9e1ec;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+}
+
+.timer-page .timer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.timer-page .timer-title {
+  color: #172033;
+  letter-spacing: 0;
+}
+
+.timer-page .timer-description {
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #667085;
+}
+
+.timer-page .timer-form {
+  display: grid;
+  gap: 18px;
+}
+
+.timer-page .timer-barber-card,
+.timer-page .timer-style-item {
+  border: 1px solid #d9e1ec;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.timer-page .timer-styles-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.timer-page .timer-time-input,
+.timer-page .timer-unit-select {
+  min-height: 44px;
+  border: 1px solid #cfd8e3;
+  border-radius: 8px;
+}
+
+.timer-page .timer-submit-button {
+  min-height: 46px;
+  border-radius: 8px;
+  background: #17324f;
+  font-weight: 700;
+}
+
+@media (max-width: 860px) {
+  .timer-page .sidebar {
+    position: static;
+    width: 100%;
+    min-height: auto;
+  }
+
+  .timer-page .nav-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+  }
+
+  .timer-page .main-content {
+    width: 100%;
+    margin-left: 0;
+    padding: 22px;
   }
 }

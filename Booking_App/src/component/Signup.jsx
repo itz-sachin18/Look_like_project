@@ -42,7 +42,7 @@ const SignUp = () => {
     }
   };
   return (
-    <div className="form-container">
+    <div className="signup-page form-container">
       <div className="form-box">
         <h2>Sign Up</h2>
         {message && <p className="success-message">{message}</p>}

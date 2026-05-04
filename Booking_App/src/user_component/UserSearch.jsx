@@ -54,6 +54,21 @@ const UserSearch = () => {
     navigate("/select-barber", { state: { shop, userId } });
   };
 
+  const handleLogout = async () => {
+    try {
+      await fetch(`${BASE_URL}/api/auth/logout`, {
+        method: "POST",
+        credentials: "include",
+      });
+    } catch (error) {
+      console.error("Logout error:", error);
+    } finally {
+      localStorage.removeItem("userData");
+      localStorage.removeItem("userId");
+      navigate("/userlogin");
+    }
+  };
+
   const navItems = [
     { icon: <Home className="us-nav-icon" />, label: "Dashboard", path: "/user" },
     { icon: <Search className="us-nav-icon" />, label: "Search Shops", path: "/search", active: true },
@@ -94,7 +109,7 @@ const UserSearch = () => {
             className="us-nav-item"
             onClick={(e) => {
               e.preventDefault();
-              // Handle logout
+              handleLogout();
             }}
           >
             <LogOut className="us-nav-icon" />
@@ -111,6 +126,10 @@ const UserSearch = () => {
           </div>
           <div className="us-topbar-right">
             <div className="us-user-id">User ID: {userId}</div>
+            <button className="us-logout-btn" onClick={handleLogout}>
+              <LogOut className="us-icon-small" />
+              Logout
+            </button>
           </div>
         </header>
 

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import'./Token.css'
+import BASE_URL from "../api";
 
 const Token = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const shop = location.state?.shop || null;
   const [availableTokens, setAvailableTokens] = useState([]);
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -21,6 +23,21 @@ const Token = () => {
 
     return () => clearInterval(timer);
   }, [shop]);
+
+  const handleLogout = async () => {
+    try {
+      await fetch(`${BASE_URL}/api/auth/logout`, {
+        method: "POST",
+        credentials: "include",
+      });
+    } catch (error) {
+      console.error("Logout error:", error);
+    } finally {
+      localStorage.removeItem("userData");
+      localStorage.removeItem("userId");
+      navigate("/userlogin");
+    }
+  };
 
   const formatTime = (hour) => {
     let period = hour >= 12 ? "PM" : "AM";
@@ -68,7 +85,10 @@ const Token = () => {
   };
 
   return (
-    <div className="token-container">
+    <div className="token-page token-container">
+      <div className="token-page-actions">
+        <button className="token-logout-btn" onClick={handleLogout}>Logout</button>
+      </div>
       <h2>{shop ? `${shop.shopName} - Token List` : "No Shop Selected"}</h2>
       <h3>{currentTime.toLocaleDateString()} | {currentTime.toLocaleTimeString()}</h3>
 

@@ -105,8 +105,23 @@ const Addbarbers = () => {
     }
   }
 
+  const handleLogout = async () => {
+    try {
+      await fetch(`${BASE_URL}/api/logout`, {
+        method: "POST",
+        credentials: "include",
+      })
+    } catch (error) {
+      console.error("Logout error:", error)
+    } finally {
+      localStorage.removeItem("token")
+      localStorage.removeItem("adminId")
+      navigate("/barberlogin")
+    }
+  }
+
   return (
-    <div className="app-container">
+    <div className="addbarbers-page app-container">
       <div className="top-navigation">
         <div className="brand">
           <i className="fas fa-cut"></i>
@@ -117,6 +132,10 @@ const Addbarbers = () => {
             <i className="fas fa-user-circle"></i>
             <span>Admin ID: {adminId}</span>
           </div>
+          <button className="logout-btn" onClick={handleLogout}>
+            <i className="fas fa-sign-out-alt"></i>
+            Logout
+          </button>
         </div>
       </div>
 

@@ -115,14 +115,17 @@ router.post("/bookings", async (req, res) => {
   }
 });
 // Example backend route (Express.js)
-router.get('/api/bookings/barber/:barberId', async (req, res) => {
+router.get('/bookings/barber/:barberId', async (req, res) => {
   try {
     const { barberId } = req.params;
+    console.log('[Bookings Route] Fetching bookings for barberId:', barberId);
 
     // Get the current date (May 17, 2025, in your case)
     const currentDate = new Date(); // This will be May 17, 2025, 05:27 PM IST as per the system time
     const startOfDay = new Date(currentDate.setHours(0, 0, 0, 0)); // Start of May 17, 2025 (00:00:00)
     const endOfDay = new Date(currentDate.setHours(23, 59, 59, 999)); // End of May 17, 2025 (23:59:59)
+
+    console.log('[Bookings Route] Date range:', startOfDay, '-', endOfDay);
 
     // Find bookings for the given barberId where bookingDate falls on the current date
     const bookings = await Booking.find({
@@ -133,10 +136,84 @@ router.get('/api/bookings/barber/:barberId', async (req, res) => {
       },
     });
 
+    console.log('[Bookings Route] Found', bookings.length, 'bookings');
     res.json(bookings);
   } catch (err) {
     console.error("Error fetching bookings:", err);
     res.status(500).json({ error: 'Failed to fetch bookings' });
+  }
+});
+
+// Auto-update expired bookings to completed status
+router.put('/auto-update-expired', async (req, res) => {
+  try {
+    const currentDate = new Date();
+    console.log('[Bookings Route] Auto-updating expired bookings at:', currentDate.toISOString());
+
+    // Find all pending bookings where bookingDate + time is in the past
+    const pendingBookings = await Booking.find({ status: 'pending' });
+
+    const updatePromises = pendingBookings.map(async (booking) => {
+      try {
+        // Parse booking time: format is "HH:MM AM/PM to HH:MM AM/PM"
+        // Example: "2:00 PM to 3:00 PM"
+        const timeRegex = /(\d{1,2}):(\d{2})\s*(AM|PM)\s*to\s*(\d{1,2}):(\d{2})\s*(AM|PM)/i;
+        const match = booking.time.match(timeRegex);
+        
+        if (!match) {
+          console.error('[Bookings Route] Could not parse time format:', booking.time);
+          return;
+        }
+
+        const [, startHour, startMin, startPeriod, endHour, endMin, endPeriod] = match;
+        
+        // Convert to 24-hour format
+        const convertTo24Hour = (hour, period) => {
+          let h = parseInt(hour);
+          if (period.toUpperCase() === 'PM' && h !== 12) h += 12;
+          if (period.toUpperCase() === 'AM' && h === 12) h = 0;
+          return h;
+        };
+        
+        const startHour24 = convertTo24Hour(startHour, startPeriod);
+        const endHour24 = convertTo24Hour(endHour, endPeriod);
+        
+        // Create datetime objects for start and end times
+        const bookingDateTime = new Date(booking.bookingDate);
+        bookingDateTime.setHours(startHour24, parseInt(startMin), 0, 0);
+        
+        const appointmentEndTime = new Date(booking.bookingDate);
+        appointmentEndTime.setHours(endHour24, parseInt(endMin), 0, 0);
+        
+        console.log('[Bookings Route] Checking booking:', {
+          userId: booking.userId,
+          appointmentTime: booking.time,
+          startTime: bookingDateTime.toISOString(),
+          endTime: appointmentEndTime.toISOString(),
+          currentTime: currentDate.toISOString(),
+          isExpired: appointmentEndTime < currentDate
+        });
+
+        // If appointment end time is in the past, mark as completed
+        if (appointmentEndTime < currentDate) {
+          console.log('[Bookings Route] Marking booking as completed:', booking._id);
+          return Booking.findByIdAndUpdate(
+            booking._id,
+            { status: 'completed' },
+            { new: true }
+          );
+        }
+      } catch (err) {
+        console.error('[Bookings Route] Error processing booking:', booking._id, err);
+      }
+    });
+
+    await Promise.all(updatePromises);
+    
+    res.json({ message: 'Expired bookings updated to completed' });
+  } catch (err) {
+    console.error("Error auto-updating bookings:", err);
+    res.status(500).json({ error: 'Failed to auto-update bookings' });
   }
 });
 
